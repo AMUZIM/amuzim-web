@@ -1,0 +1,7 @@
+export default function DiscoverMusic() {
+  return (
+    <div>
+      <h3>Music</h3>
+    </div>
+  );
+}
