@@ -1,1 +1,0 @@
-Editorial media frontend
