@@ -1,15 +1,19 @@
+import "../styles/globals.css"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-title: "AMUZIM",
-description: "Music Intelligence Platform",
+  title: "AMUZIM",
+  description: "Music Intelligence Platform",
 }
 
 export default function RootLayout({
-children,
+  children,
 }: {
-children: React.ReactNode
+  children: React.ReactNode
 }) {
-return ( <html lang="en"> <body>{children}</body> </html>
-)
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
 }
