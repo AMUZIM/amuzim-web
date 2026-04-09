@@ -1,9 +1,7 @@
-
-export default function NetworkPage() {
+export default function Network() {
   return (
     <main>
       <h1>Network</h1>
-      <p>AMUZIM Network — Community & Collaboration</p>
     </main>
-  );
+  )
 }
