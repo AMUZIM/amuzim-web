@@ -1,8 +1,10 @@
-
 export default function Footer() {
   return (
     <footer>
-      <p>AMUZIM — Music Intelligence Platform</p>
+      <div>
+        <p>AMUZIM</p>
+        <p>Music Intelligence Platform</p>
+      </div>
     </footer>
   )
 }
