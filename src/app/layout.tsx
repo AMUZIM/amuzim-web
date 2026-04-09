@@ -1,10 +1,9 @@
 import "../styles/globals.css"
 import type { Metadata } from "next"
 
-import Header from "@/components/layout/Header"
-import Navigation from "@/components/layout/Navigation"
-import Footer from "@/components/layout/Footer"
-
+import Header from "../components/layout/Header"
+import Navigation from "../components/layout/Navigation"
+import Footer from "../components/layout/Footer"
 export const metadata: Metadata = {
   title: "AMUZIM",
   description: "Music Intelligence Platform",
