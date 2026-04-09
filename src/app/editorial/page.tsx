@@ -1,9 +1,7 @@
-
-export default function EditorialPage() {
+export default function Editorial() {
   return (
     <main>
       <h1>Editorial</h1>
-      <p>AMUZIM Editorial — Intelligence & Analysis</p>
     </main>
-  );
+  )
 }
