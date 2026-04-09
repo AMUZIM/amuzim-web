@@ -87,3 +87,7 @@ main {
 h1 {
   color: red !important;
 }
+
+body {
+  background: yellow !important;
+}
