@@ -15,6 +15,7 @@ header h1 {
 
 nav {
   border-bottom: 1px solid #eee;
+  background: white;
 }
 
 nav div {
@@ -25,8 +26,9 @@ nav div {
 
 nav ul {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   list-style: none;
+  align-items: center;
 }
 
 nav a {
