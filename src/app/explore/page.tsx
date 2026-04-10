@@ -1,13 +1,13 @@
-import HeroExplore from "../../components/explore/HeroExplore"
-import CuratedMusic from "../../components/explore/CuratedMusic"
-import MusicLovers from "../../components/explore/MusicLovers"
-import CreatorInfrastructure from "../../components/explore/CreatorInfrastructure"
-import Learning from "../../components/explore/Learning"
-import IndustryAccess from "../../components/explore/IndustryAccess"
-import ResponsibleAI from "../../components/explore/ResponsibleAI"
-import LegalRights from "../../components/explore/LegalRights"
-import FutureInfrastructure from "../../components/explore/FutureInfrastructure"
-import ExploreCTA from "../../components/explore/ExploreCTA"
+import HeroExplore from "@/components/HeroExplore"
+import CuratedMusic from "@/components/CuratedMusic"
+import MusicLovers from "@/components/MusicLovers"
+import CreatorInfrastructure from "@/components/CreatorInfrastructure"
+import Learning from "@/components/Learning"
+import IndustryAccess from "@/components/IndustryAccess"
+import ResponsibleAI from "@/components/ResponsibleAI"
+import LegalRights from "@/components/LegalRights"
+import FutureInfrastructure from "@/components/FutureInfrastructure"
+import ExploreCTA from "@/components/ExploreCTA"
 
 export default function Explore() {
   return (
