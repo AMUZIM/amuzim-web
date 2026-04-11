@@ -11,12 +11,21 @@ export default function Learning() {
           Mentorship, knowledge and industry education for creators
         </p>
 
-        <ul className="space-y-2">
+        <ul className="space-y-2 mb-8">
           <li>Mentors</li>
           <li>Knowledge</li>
           <li>Industry education</li>
           <li>Career development</li>
         </ul>
+
+        <div className="mt-6">
+          <a 
+            href="/editorial"
+            className="text-black underline"
+          >
+            Explore Editorial
+          </a>
+        </div>
 
       </div>
     </section>
