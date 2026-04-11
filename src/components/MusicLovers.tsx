@@ -1,22 +1,65 @@
 export default function MusicLovers() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-24 px-6 border-t">
       <div className="max-w-5xl mx-auto">
 
         <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-          Discover Music Culture
+          For Music Lovers
         </h2>
 
         <p className="text-lg text-gray-600 mb-8">
-          Discover better music through curated genres, cultural context and deep exploration
+          Discover music beyond algorithms through curated experiences 
+          shaped by creators, culture and communities.
         </p>
 
-        <ul className="space-y-2">
-          <li>Discover better music</li>
-          <li>Deep genre exploration</li>
-          <li>Cultural context</li>
-          <li>Curated discovery</li>
-        </ul>
+        <p className="text-gray-600 mb-10">
+          AMUZIM explores new ways to experience music through scenes, 
+          curated sets and meaningful discovery.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-8">
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Discover Curated Music
+            </h3>
+            <p className="text-gray-600">
+              Explore hyper-curated sets created by artists, 
+              producers and cultural communities.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Explore Cultural Scenes
+            </h3>
+            <p className="text-gray-600">
+              Discover genres, movements and communities shaping 
+              the future of music.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Follow Creators
+            </h3>
+            <p className="text-gray-600">
+              Connect with creators and follow curated discovery 
+              shaped by real taste.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Experience Music Differently
+            </h3>
+            <p className="text-gray-600">
+              Move beyond playlists and explore music through 
+              curated journeys and cultural context.
+            </p>
+          </div>
+
+        </div>
 
       </div>
     </section>
