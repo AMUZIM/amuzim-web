@@ -1,33 +1,64 @@
 export default function CuratedMusic() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-24 px-6 border-t">
       <div className="max-w-5xl mx-auto">
 
         <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-          Curated Music Infrastructure
+          Hyper-Curated Music
         </h2>
 
         <p className="text-lg text-gray-600 mb-8">
-          Curated catalogs, genres, and cultural sound discovery
+          AMUZIM explores a new approach to music discovery through 
+          curated sets, cultural scenes and creator-driven selections.
         </p>
 
-        <ul className="space-y-2 mb-8">
-          <li>Curated catalogs</li>
-          <li>Genre-based discovery</li>
-          <li>DJ sets</li>
-          <li>Producer catalogs</li>
-          <li>Cultural collections</li>
-          <li>Editorial curation</li>
-        </ul>
+        <p className="text-gray-600 mb-10">
+          Instead of endless catalogs, AMUZIM focuses on meaningful 
+          discovery shaped by creators, communities and cultural context.
+        </p>
 
-        <div className="flex gap-4">
-          <button className="px-6 py-3 bg-black text-white">
-            Explore Catalog
-          </button>
+        <div className="grid md:grid-cols-2 gap-8">
 
-          <button className="px-6 py-3 border border-black">
-            Submit Your Music
-          </button>
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Curated Sets
+            </h3>
+            <p className="text-gray-600">
+              Discover music through curated sets created by artists, 
+              producers and cultural communities.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Cultural Discovery
+            </h3>
+            <p className="text-gray-600">
+              Explore genres, scenes and movements shaped by culture, 
+              not only algorithms.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Creator-Driven Catalogs
+            </h3>
+            <p className="text-gray-600">
+              Music discovery guided by creators, labels and 
+              industry professionals.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Listening Experiences
+            </h3>
+            <p className="text-gray-600">
+              A new way to explore music through context, 
+              culture and curated journeys.
+            </p>
+          </div>
+
         </div>
 
       </div>
