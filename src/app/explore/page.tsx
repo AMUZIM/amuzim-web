@@ -11,17 +11,23 @@ import ExploreCTA from "../../components/ExploreCTA"
 
 export default function Explore() {
   return (
-    <main>
+    <main className="bg-white text-black">
+
       <HeroExplore />
-      <CuratedMusic />
-      <MusicLovers />
-      <CreatorInfrastructure />
-      <Learning />
-      <IndustryAccess />
-      <ResponsibleAI />
-      <LegalRights />
-      <FutureInfrastructure />
+
+      <div className="space-y-32">
+        <CuratedMusic />
+        <MusicLovers />
+        <CreatorInfrastructure />
+        <Learning />
+        <IndustryAccess />
+        <ResponsibleAI />
+        <LegalRights />
+        <FutureInfrastructure />
+      </div>
+
       <ExploreCTA />
+
     </main>
   )
 }
