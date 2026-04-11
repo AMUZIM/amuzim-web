@@ -6,7 +6,8 @@ export default function Navigation() {
       <Link href="/explore">Explore</Link>
       <Link href="/editorial">Editorial</Link>
       <Link href="/network">Network</Link>
-      <Link href="/creators">For Creators</Link>
+      <Link href="/future">Future</Link>
+      <Link href="/creators">Creators</Link>
       <Link 
         href="/join"
         className="px-4 py-2 border rounded-md"
