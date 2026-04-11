@@ -11,12 +11,21 @@ export default function FutureInfrastructure() {
           Building the future of music infrastructure and creator economy
         </p>
 
-        <ul className="space-y-2">
+        <ul className="space-y-2 mb-8">
           <li>AI</li>
           <li>Streaming</li>
           <li>Creator economy</li>
           <li>Discovery infrastructure</li>
         </ul>
+
+        <div className="mt-6">
+          <a 
+            href="/future"
+            className="text-black underline"
+          >
+            Explore Future Vision
+          </a>
+        </div>
 
       </div>
     </section>
