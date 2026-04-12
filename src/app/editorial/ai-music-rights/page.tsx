@@ -1,46 +1,48 @@
 export default function AIArticle() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-24">
+    <main>
 
-      <h1 className="text-4xl md:text-5xl font-semibold mb-6">
-        Can AI Music Be Registered?
-      </h1>
+      {/* Hero Image */}
 
-      <p className="text-xl text-gray-600 mb-12">
-        The Legal Question That May Redefine Music Ownership
-      </p>
+      <section className="h-[60vh] bg-gray-100 flex items-center justify-center">
+        <h1 className="text-4xl md:text-6xl font-semibold text-center px-6">
+          Can AI Music Be Registered?
+        </h1>
+      </section>
 
-      <article className="prose prose-lg max-w-none">
+      {/* Content */}
 
-        <p>
-        Music is entering a new era. Artificial intelligence is no longer assisting creativity — it is creating music itself.
+      <section className="max-w-4xl mx-auto px-6 py-20">
+
+        <p className="text-xl text-gray-600 mb-12">
+          The Legal Question That May Redefine Music Ownership
         </p>
 
-        <p>
-        AI can now compose full tracks, generate melodies, create lyrics, clone voices, and produce complete songs.
-        </p>
+        <article className="prose prose-lg max-w-none">
 
-        <p>
-        But as AI begins to create music, a fundamental question emerges: Can AI-generated music actually be registered?
-        </p>
+          <p>
+          Music is entering a new era. Artificial intelligence is no longer assisting creativity — it is creating music itself.
+          </p>
 
-        <h2>The Core Legal Principle</h2>
+          <p>
+          AI can now compose full tracks, generate melodies, create lyrics, clone voices, and produce complete songs.
+          </p>
 
-        <p>
-        Copyright law has always been built on one fundamental idea: Creativity belongs to humans.
-        </p>
+          <h2>The Core Legal Principle</h2>
 
-        <p>
-        Artificial intelligence challenges this foundation. If AI creates the music, who is the author?
-        </p>
+          <p>
+          Copyright law has always been built on one fundamental idea: Creativity belongs to humans.
+          </p>
 
-        <h2>The AMUZIM Perspective</h2>
+          <h2>The AMUZIM Perspective</h2>
 
-        <p>
-        AI-generated music is not just a legal issue. It represents a shift in creative ownership and a new music economy.
-        </p>
+          <p>
+          AI-generated music is not just a legal issue. It represents a shift in creative ownership and a new music economy.
+          </p>
 
-      </article>
+        </article>
+
+      </section>
 
     </main>
   )
