@@ -15,7 +15,7 @@ export default function EditorialPage() {
       </section>
 
 
-      {/* Featured Articles */}
+      {/* Featured */}
 
       <section className="mb-24">
 
@@ -25,7 +25,7 @@ export default function EditorialPage() {
 
         <div className="grid md:grid-cols-3 gap-8">
 
-          {/* Main Featured */}
+          {/* Main */}
 
           <a 
             href="/editorial/ai-music-rights"
@@ -42,7 +42,7 @@ export default function EditorialPage() {
           </a>
 
 
-          {/* Secondary Articles */}
+          {/* Secondary */}
 
           <div className="flex flex-col gap-8">
 
@@ -65,11 +65,11 @@ export default function EditorialPage() {
               className="border rounded-xl p-8 hover:shadow-md transition"
             >
               <h3 className="text-xl font-semibold mb-3">
-                Spanish Urban Music Movement
+                Spanish Urban Movement
               </h3>
 
               <p className="text-gray-600">
-                How Spanish-language urban sound is reshaping global culture.
+                The rise of a new global Spanish-language urban sound.
               </p>
             </a>
 
@@ -115,11 +115,9 @@ export default function EditorialPage() {
   )
 }
 
-
 function Category({ title, description }) {
   return (
     <div className="border rounded-lg p-8 hover:shadow-sm transition">
-
       <h2 className="text-2xl font-medium mb-3">
         {title}
       </h2>
