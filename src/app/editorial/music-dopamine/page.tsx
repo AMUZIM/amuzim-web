@@ -2,15 +2,23 @@ export default function MusicDopamine() {
   return (
     <main>
 
-      {/* Hero */}
+      {/* Hero Image */}
 
-      <section className="relative h-[70vh] flex items-center justify-center bg-black text-white">
+      <section className="relative h-[75vh]">
 
-        <div className="absolute inset-0 opacity-40 bg-gradient-to-br from-blue-900 via-black to-purple-900" />
+        <img
+          src="https://images.unsplash.com/photo-1511379938547-c1f69419868d"
+          alt="Music Dopamine"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        <h1 className="relative text-4xl md:text-6xl font-semibold text-center px-6">
-          Music & Dopamine
-        </h1>
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative h-full flex items-center justify-center">
+          <h1 className="text-white text-4xl md:text-6xl font-semibold text-center px-6">
+            Music & Dopamine
+          </h1>
+        </div>
 
       </section>
 
