@@ -2,11 +2,20 @@ export default function MusicDopamine() {
   return (
     <main>
 
-      <section className="h-[60vh] bg-gray-100 flex items-center justify-center">
-        <h1 className="text-4xl md:text-6xl font-semibold text-center px-6">
+      {/* Hero */}
+
+      <section className="relative h-[70vh] flex items-center justify-center bg-black text-white">
+
+        <div className="absolute inset-0 opacity-40 bg-gradient-to-br from-blue-900 via-black to-purple-900" />
+
+        <h1 className="relative text-4xl md:text-6xl font-semibold text-center px-6">
           Music & Dopamine
         </h1>
+
       </section>
+
+
+      {/* Content */}
 
       <section className="max-w-4xl mx-auto px-6 py-20">
 
