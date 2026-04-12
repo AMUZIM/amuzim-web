@@ -2,15 +2,23 @@ export default function AIArticle() {
   return (
     <main>
 
-      {/* Hero */}
+      {/* Hero Image */}
 
-      <section className="relative h-[70vh] flex items-center justify-center bg-black text-white">
+      <section className="relative h-[75vh]">
 
-        <div className="absolute inset-0 opacity-40 bg-gradient-to-br from-purple-900 via-black to-blue-900" />
+        <img
+          src="https://images.unsplash.com/photo-1677442136019-21780ecad995"
+          alt="AI Music"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        <h1 className="relative text-4xl md:text-6xl font-semibold text-center px-6">
-          Can AI Music Be Registered?
-        </h1>
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative h-full flex items-center justify-center">
+          <h1 className="text-white text-4xl md:text-6xl font-semibold text-center px-6">
+            Can AI Music Be Registered?
+          </h1>
+        </div>
 
       </section>
 
