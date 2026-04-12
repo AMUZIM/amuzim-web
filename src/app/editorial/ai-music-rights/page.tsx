@@ -2,13 +2,18 @@ export default function AIArticle() {
   return (
     <main>
 
-      {/* Hero Image */}
+      {/* Hero */}
 
-      <section className="h-[60vh] bg-gray-100 flex items-center justify-center">
-        <h1 className="text-4xl md:text-6xl font-semibold text-center px-6">
+      <section className="relative h-[70vh] flex items-center justify-center bg-black text-white">
+
+        <div className="absolute inset-0 opacity-40 bg-gradient-to-br from-purple-900 via-black to-blue-900" />
+
+        <h1 className="relative text-4xl md:text-6xl font-semibold text-center px-6">
           Can AI Music Be Registered?
         </h1>
+
       </section>
+
 
       {/* Content */}
 
