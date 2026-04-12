@@ -25,19 +25,35 @@ export default function EditorialPage() {
 
         <div className="grid md:grid-cols-3 gap-8">
 
-          {/* Main */}
+          {/* Main Featured */}
 
           <a 
             href="/editorial/ai-music-rights"
-            className="md:col-span-2 border rounded-xl p-10 hover:shadow-md transition"
+            className="md:col-span-2 group"
           >
-            <h3 className="text-3xl font-semibold mb-4">
-              Can AI Music Be Registered?
-            </h3>
 
-            <p className="text-gray-600 text-lg">
-              The legal question redefining ownership in the era of AI-generated music.
-            </p>
+            <div className="relative h-[420px] rounded-xl overflow-hidden">
+
+              <img
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+
+              <div className="absolute inset-0 bg-black/40" />
+
+              <div className="relative h-full flex items-end p-8">
+                <div>
+                  <h3 className="text-3xl text-white font-semibold mb-2">
+                    Can AI Music Be Registered?
+                  </h3>
+
+                  <p className="text-gray-200">
+                    The legal question redefining ownership in AI music
+                  </p>
+                </div>
+              </div>
+
+            </div>
 
           </a>
 
@@ -48,29 +64,51 @@ export default function EditorialPage() {
 
             <a 
               href="/editorial/music-dopamine"
-              className="border rounded-xl p-8 hover:shadow-md transition"
+              className="group"
             >
-              <h3 className="text-xl font-semibold mb-3">
-                Music & Dopamine
-              </h3>
 
-              <p className="text-gray-600">
-                How music shapes the brain, behavior and global culture.
-              </p>
+              <div className="relative h-[200px] rounded-xl overflow-hidden">
+
+                <img
+                  src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+
+                <div className="absolute inset-0 bg-black/40" />
+
+                <div className="relative h-full flex items-end p-6">
+                  <h3 className="text-white text-xl font-semibold">
+                    Music & Dopamine
+                  </h3>
+                </div>
+
+              </div>
+
             </a>
 
 
             <a 
               href="/editorial/spanish-urban-movement"
-              className="border rounded-xl p-8 hover:shadow-md transition"
+              className="group"
             >
-              <h3 className="text-xl font-semibold mb-3">
-                Spanish Urban Movement
-              </h3>
 
-              <p className="text-gray-600">
-                The rise of a new global Spanish-language urban sound.
-              </p>
+              <div className="relative h-[200px] rounded-xl overflow-hidden">
+
+                <img
+                  src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+
+                <div className="absolute inset-0 bg-black/40" />
+
+                <div className="relative h-full flex items-end p-6">
+                  <h3 className="text-white text-xl font-semibold">
+                    Spanish Urban Movement
+                  </h3>
+                </div>
+
+              </div>
+
             </a>
 
           </div>
@@ -115,6 +153,7 @@ export default function EditorialPage() {
   )
 }
 
+
 function Category({ title, description }) {
   return (
     <div className="border rounded-lg p-8 hover:shadow-sm transition">
@@ -125,7 +164,6 @@ function Category({ title, description }) {
       <p className="text-gray-600">
         {description}
       </p>
-
     </div>
   )
 }
