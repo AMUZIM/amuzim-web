@@ -7,12 +7,12 @@ export default function MusicDopamine() {
       <section className="relative h-[75vh]">
 
         <img
-          src="https://images.unsplash.com/photo-1511379938547-c1f69419868d"
-          alt="Music Dopamine"
+          src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad"
+          alt="Music Dopamine Brain"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative h-full flex items-center justify-center">
           <h1 className="text-white text-4xl md:text-6xl font-semibold text-center px-6">
