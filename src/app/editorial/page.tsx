@@ -14,6 +14,72 @@ export default function EditorialPage() {
         </p>
       </section>
 
+
+      {/* Featured Articles */}
+
+      <section className="mb-24">
+
+        <h2 className="text-2xl font-semibold mb-10">
+          Featured Stories
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8">
+
+          {/* Main Featured */}
+
+          <a 
+            href="/editorial/ai-music-rights"
+            className="md:col-span-2 border rounded-xl p-10 hover:shadow-md transition"
+          >
+            <h3 className="text-3xl font-semibold mb-4">
+              Can AI Music Be Registered?
+            </h3>
+
+            <p className="text-gray-600 text-lg">
+              The legal question redefining ownership in the era of AI-generated music.
+            </p>
+
+          </a>
+
+
+          {/* Secondary */}
+
+          <div className="grid md:grid-cols-2 gap-8 md:col-span-2">
+
+            <a 
+              href="/editorial/music-dopamine"
+              className="border rounded-xl p-8 hover:shadow-md transition"
+            >
+              <h3 className="text-xl font-semibold mb-3">
+                Music & Dopamine
+              </h3>
+
+              <p className="text-gray-600">
+                How music shapes the brain, behavior and global culture.
+              </p>
+            </a>
+
+
+            <a 
+              href="/editorial/spanish-urban-movement"
+              className="border rounded-xl p-8 hover:shadow-md transition"
+            >
+              <h3 className="text-xl font-semibold mb-3">
+                Spanish Urban Music Movement
+              </h3>
+
+              <p className="text-gray-600">
+                How Spanish-language urban sound is reshaping global culture.
+              </p>
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
       {/* Categories */}
 
       <section className="grid md:grid-cols-2 gap-10">
@@ -48,6 +114,7 @@ export default function EditorialPage() {
     </main>
   )
 }
+
 
 function Category({ title, description }) {
   return (
