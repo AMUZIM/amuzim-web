@@ -23,7 +23,7 @@ export default function EditorialPage() {
           Featured Stories
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
 
           {/* Main Featured */}
 
@@ -42,9 +42,9 @@ export default function EditorialPage() {
           </a>
 
 
-          {/* Secondary */}
+          {/* Secondary Articles */}
 
-          <div className="grid md:grid-cols-2 gap-8 md:col-span-2">
+          <div className="flex flex-col gap-8">
 
             <a 
               href="/editorial/music-dopamine"
