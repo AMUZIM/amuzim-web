@@ -2,15 +2,23 @@ export default function SpanishUrbanMovement() {
   return (
     <main>
 
-      {/* Hero */}
+      {/* Hero Image */}
 
-      <section className="relative h-[70vh] flex items-center justify-center bg-black text-white">
+      <section className="relative h-[75vh]">
 
-        <div className="absolute inset-0 opacity-40 bg-gradient-to-br from-orange-900 via-black to-red-900" />
+        <img
+          src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f"
+          alt="Spanish Urban Movement"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        <h1 className="relative text-4xl md:text-6xl font-semibold text-center px-6">
-          Spanish Urban Movement
-        </h1>
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="relative h-full flex items-center justify-center">
+          <h1 className="text-white text-4xl md:text-6xl font-semibold text-center px-6">
+            Spanish Urban Movement
+          </h1>
+        </div>
 
       </section>
 
