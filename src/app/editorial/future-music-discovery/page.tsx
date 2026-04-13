@@ -14,41 +14,49 @@ export default function FutureMusicDiscovery() {
           How Music Discovery Is Evolving in the AI Era
         </p>
 
-        <article className="prose prose-lg max-w-none">
+        <div className="space-y-6 text-gray-700">
 
           <p>
-          Music discovery is changing rapidly. Algorithms, AI, and curated ecosystems are reshaping how listeners find music.
+            Music discovery is changing rapidly. Algorithms, AI, and curated ecosystems are reshaping how listeners find music.
           </p>
 
           <p>
-          Traditional discovery relied on radio, labels, and editorial media. Today, discovery is becoming decentralized.
+            Traditional discovery relied on radio, labels, and editorial media. Today, discovery is becoming decentralized.
           </p>
 
-          <h2>Algorithmic Discovery</h2>
+          <h2 className="text-2xl font-semibold pt-8">
+            Algorithmic Discovery
+          </h2>
 
           <p>
-          Streaming platforms increasingly rely on recommendation systems powered by data and behavior.
+            Streaming platforms increasingly rely on recommendation systems powered by data and behavior.
           </p>
 
-          <h2>Curated Intelligence</h2>
+          <h2 className="text-2xl font-semibold pt-8">
+            Curated Intelligence
+          </h2>
 
           <p>
-          Human curation is becoming more valuable as content volume increases.
+            Human curation is becoming more valuable as content volume increases.
           </p>
 
-          <h2>AI Discovery Engines</h2>
+          <h2 className="text-2xl font-semibold pt-8">
+            AI Discovery Engines
+          </h2>
 
           <p>
-          Artificial intelligence may soon generate personalized discovery experiences.
+            Artificial intelligence may soon generate personalized discovery experiences.
           </p>
 
-          <h2>Future Platforms</h2>
+          <h2 className="text-2xl font-semibold pt-8">
+            Future Platforms
+          </h2>
 
           <p>
-          Future discovery platforms will combine human curation, AI intelligence, and cultural insights.
+            Future discovery platforms will combine human curation, AI intelligence, and cultural insights.
           </p>
 
-        </article>
+        </div>
 
       </section>
 
