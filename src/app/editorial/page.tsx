@@ -15,13 +15,23 @@ const articles = [
   { title: "Future Music Economy", link: "/editorial/music-future-economy", category: "Future" },
 ]
 
+const categories = ["All", "AI", "Culture", "Industry", "Future", "Science"]
+
 export default function EditorialPage() {
 
   const [search, setSearch] = useState("")
+  const [activeCategory, setActiveCategory] = useState("All")
 
-  const filtered = articles.filter(article =>
-    article.title.toLowerCase().includes(search.toLowerCase())
-  )
+  const filtered = articles.filter(article => {
+
+    const matchesSearch =
+      article.title.toLowerCase().includes(search.toLowerCase())
+
+    const matchesCategory =
+      activeCategory === "All" || article.category === activeCategory
+
+    return matchesSearch && matchesCategory
+  })
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-24">
@@ -62,7 +72,6 @@ export default function EditorialPage() {
             </p>
           </a>
 
-
           <div className="flex flex-col gap-8">
 
             <a
@@ -73,7 +82,6 @@ export default function EditorialPage() {
                 Music & Dopamine
               </h3>
             </a>
-
 
             <a
               href="/editorial/spanish-urban-movement"
@@ -87,6 +95,27 @@ export default function EditorialPage() {
           </div>
 
         </div>
+
+      </section>
+
+
+      {/* Categories */}
+
+      <section className="mb-10 flex flex-wrap gap-4">
+
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-5 py-2 rounded-full border transition ${
+              activeCategory === category
+                ? "bg-black text-white"
+                : "hover:bg-gray-100"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
 
       </section>
 
