@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200">
       
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
 
@@ -16,15 +16,11 @@ export default function Header() {
           AMUZIM
         </Link>
 
-
         {/* Navigation */}
 
-        <Navigation />
-
-
-        {/* Right spacing / future actions */}
-
-        <div className="w-24" />
+        <div className="flex items-center">
+          <Navigation />
+        </div>
 
       </div>
 
