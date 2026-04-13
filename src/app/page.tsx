@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function HomePage() {
   return (
     <main className="bg-white text-black">
@@ -7,9 +9,16 @@ export default function HomePage() {
       <section className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
 
-          <h1 className="text-5xl md:text-6xl font-semibold mb-6">
-            AMUZIM
-          </h1>
+          {/* Logo Vertical */}
+
+          <Image
+            src="/logo/logo-vertical.png"
+            alt="AMUZIM"
+            width={220}
+            height={120}
+            className="mb-6"
+            priority
+          />
 
           <p className="text-xl text-gray-600 mb-6 max-w-2xl">
             Music Intelligence Platform
