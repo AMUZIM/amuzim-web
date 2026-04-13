@@ -3,18 +3,31 @@ import Link from "next/link"
 
 export default function Header() {
   return (
-    <header className="border-b border-neutral-200 sticky top-0 bg-white z-50">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200">
+      
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+        {/* Logo */}
+
+        <Link 
+          href="/" 
+          className="text-lg font-semibold tracking-tight hover:opacity-70 transition"
+        >
           AMUZIM
         </Link>
 
+
+        {/* Navigation */}
+
         <Navigation />
+
+
+        {/* Right spacing / future actions */}
 
         <div className="w-24" />
 
       </div>
+
     </header>
   )
 }
