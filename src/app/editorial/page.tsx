@@ -99,6 +99,38 @@ export default function EditorialPage() {
       </section>
 
 
+      {/* Latest */}
+
+      <section className="mb-20">
+
+        <h2 className="text-2xl font-semibold mb-8">
+          Latest Articles
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+
+          {articles.slice(0,6).map((article, index) => (
+            <a
+              key={index}
+              href={article.link}
+              className="border rounded-lg p-6 hover:shadow-md transition"
+            >
+              <h3 className="text-lg font-semibold mb-2">
+                {article.title}
+              </h3>
+
+              <p className="text-gray-500 text-sm">
+                {article.category}
+              </p>
+
+            </a>
+          ))}
+
+        </div>
+
+      </section>
+
+
       {/* Categories */}
 
       <section className="mb-10 flex flex-wrap gap-4">
