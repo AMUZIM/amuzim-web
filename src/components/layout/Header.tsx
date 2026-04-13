@@ -7,14 +7,21 @@ export default function Header() {
       
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
         
-        {/* Logo */}
+        {/* Brand / Logo */}
 
         <Link 
           href="/" 
-          className="text-lg font-semibold tracking-tight hover:opacity-70 transition"
+          className="flex items-center gap-2 group"
         >
-          AMUZIM
+          <span className="text-lg font-semibold tracking-tight group-hover:opacity-70 transition">
+            AMUZIM
+          </span>
+
+          <span className="hidden sm:block text-xs text-neutral-500">
+            Music Intelligence
+          </span>
         </Link>
+
 
         {/* Navigation */}
 
