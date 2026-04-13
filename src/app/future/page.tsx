@@ -1,3 +1,6 @@
+import ResponsibleAI from "../../components/ResponsibleAI"
+import FutureInfrastructure from "../../components/FutureInfrastructure"
+
 export default function FuturePage() {
   return (
     <main className="bg-white text-black">
@@ -23,165 +26,178 @@ export default function FuturePage() {
       </section>
 
 
-      {/* Hyper Curated */}
+      <div className="space-y-32">
 
-      <section className="py-24 px-6 border-t">
-        <div className="max-w-4xl mx-auto text-center">
+        {/* Hyper Curated */}
 
-          <h2 className="text-3xl font-semibold mb-6">
-            Hyper-Curated Music
-          </h2>
+        <section className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
 
-          <p className="text-gray-600 mb-6">
-            Not more music. Better music.
-          </p>
+            <h2 className="text-3xl font-semibold mb-6">
+              Hyper-Curated Music
+            </h2>
 
-          <p className="text-gray-600">
-            AMUZIM explores hyper-curated sets created by creators, labels,
-            producers and cultural communities.
-          </p>
+            <p className="text-gray-600 mb-6">
+              Not more music. Better music.
+            </p>
 
-        </div>
-      </section>
+            <p className="text-gray-600">
+              AMUZIM explores hyper-curated sets created by creators, labels,
+              producers and cultural communities.
+            </p>
 
-
-      {/* Visualizing Music */}
-
-      <section className="py-24 px-6 border-t">
-        <div className="max-w-4xl mx-auto text-center">
-
-          <h2 className="text-3xl font-semibold mb-6">
-            Visualizing Music
-          </h2>
-
-          <p className="text-gray-600 mb-6">
-            Music is more than tracks. It's culture, context and discovery.
-          </p>
-
-          <p className="text-gray-600">
-            AMUZIM explores new ways to visualize music through scenes,
-            genres, curated paths and creator journeys.
-          </p>
-
-        </div>
-      </section>
+          </div>
+        </section>
 
 
-      {/* Creator Driven Catalog */}
+        {/* Visualizing Music */}
 
-      <section className="py-24 px-6 border-t">
-        <div className="max-w-4xl mx-auto text-center">
+        <section className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
 
-          <h2 className="text-3xl font-semibold mb-6">
-            Creator-Driven Catalogs
-          </h2>
+            <h2 className="text-3xl font-semibold mb-6">
+              Visualizing Music
+            </h2>
 
-          <p className="text-gray-600 mb-6">
-            Discovery shaped by creators and cultural communities.
-          </p>
+            <p className="text-gray-600 mb-6">
+              Music is more than tracks. It's culture, context and discovery.
+            </p>
 
-          <p className="text-gray-600">
-            Curated catalogs, sets and collections built around taste,
-            expertise and cultural relevance.
-          </p>
+            <p className="text-gray-600">
+              AMUZIM explores new ways to visualize music through scenes,
+              genres, curated paths and creator journeys.
+            </p>
 
-        </div>
-      </section>
-
-
-      {/* Cultural Discovery */}
-
-      <section className="py-24 px-6 border-t">
-        <div className="max-w-4xl mx-auto text-center">
-
-          <h2 className="text-3xl font-semibold mb-6">
-            Cultural Discovery
-          </h2>
-
-          <p className="text-gray-600 mb-6">
-            Discover music through scenes, communities and creators.
-          </p>
-
-          <p className="text-gray-600">
-            AMUZIM explores discovery beyond algorithms, focusing on
-            culture, expertise and human curation.
-          </p>
-
-        </div>
-      </section>
+          </div>
+        </section>
 
 
-      {/* New Streaming Experience */}
+        {/* Creator Driven */}
 
-      <section className="py-24 px-6 border-t">
-        <div className="max-w-4xl mx-auto text-center">
+        <section className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
 
-          <h2 className="text-3xl font-semibold mb-6">
-            New Streaming Experience
-          </h2>
+            <h2 className="text-3xl font-semibold mb-6">
+              Creator-Driven Catalogs
+            </h2>
 
-          <p className="text-gray-600 mb-6">
-            A new way to experience music is coming.
-          </p>
+            <p className="text-gray-600 mb-6">
+              Discovery shaped by creators and cultural communities.
+            </p>
 
-          <p className="text-gray-600">
-            AMUZIM is exploring a new streaming experience focused on discovery,
-            creativity and cultural intelligence.
-          </p>
+            <p className="text-gray-600">
+              Curated catalogs, sets and collections built around taste,
+              expertise and cultural relevance.
+            </p>
 
-          <p className="text-gray-500 mt-6">
-            Coming Soon
-          </p>
-
-        </div>
-      </section>
+          </div>
+        </section>
 
 
-      {/* Creative AI */}
+        {/* Cultural Discovery */}
 
-      <section className="py-24 px-6 border-t">
-        <div className="max-w-4xl mx-auto text-center">
+        <section className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
 
-          <h2 className="text-3xl font-semibold mb-6">
-            Creative AI for Music
-          </h2>
+            <h2 className="text-3xl font-semibold mb-6">
+              Cultural Discovery
+            </h2>
 
-          <p className="text-gray-600 mb-6">
-            The next generation of music creativity will be powered by intelligence.
-          </p>
+            <p className="text-gray-600 mb-6">
+              Discover music through scenes, communities and creators.
+            </p>
 
-          <p className="text-gray-600">
-            AMUZIM explores new creative possibilities that help creators,
-            fans and industry discover new musical directions.
-          </p>
+            <p className="text-gray-600">
+              AMUZIM explores discovery beyond algorithms, focusing on
+              culture, expertise and human curation.
+            </p>
 
-        </div>
-      </section>
-
-
-      {/* Music Lovers */}
-
-      <section className="py-24 px-6 border-t">
-        <div className="max-w-4xl mx-auto text-center">
-
-          <h2 className="text-3xl font-semibold mb-6">
-            A Space for Music Lovers
-          </h2>
-
-          <p className="text-gray-600 mb-6">
-            Music is culture. Music is community.
-          </p>
-
-          <p className="text-gray-600">
-            AMUZIM is building a global space for people who love discovering,
-            exploring and experiencing music.
-          </p>
-
-        </div>
-      </section>
+          </div>
+        </section>
 
 
-      {/* Coming Soon */}
+        {/* Streaming */}
+
+        <section className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
+
+            <h2 className="text-3xl font-semibold mb-6">
+              New Streaming Experience
+            </h2>
+
+            <p className="text-gray-600 mb-6">
+              A new way to experience music is coming.
+            </p>
+
+            <p className="text-gray-600">
+              AMUZIM is exploring a new streaming experience focused on discovery,
+              creativity and cultural intelligence.
+            </p>
+
+            <p className="text-gray-500 mt-6">
+              Coming Soon
+            </p>
+
+          </div>
+        </section>
+
+
+        {/* Creative AI */}
+
+        <section className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
+
+            <h2 className="text-3xl font-semibold mb-6">
+              Creative AI for Music
+            </h2>
+
+            <p className="text-gray-600 mb-6">
+              The next generation of music creativity will be powered by intelligence.
+            </p>
+
+            <p className="text-gray-600">
+              AMUZIM explores new creative possibilities that help creators,
+              fans and industry discover new musical directions.
+            </p>
+
+          </div>
+        </section>
+
+
+        {/* Music Lovers */}
+
+        <section className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
+
+            <h2 className="text-3xl font-semibold mb-6">
+              A Space for Music Lovers
+            </h2>
+
+            <p className="text-gray-600 mb-6">
+              Music is culture. Music is community.
+            </p>
+
+            <p className="text-gray-600">
+              AMUZIM is building a global space for people who love discovering,
+              exploring and experiencing music.
+            </p>
+
+          </div>
+        </section>
+
+
+        {/* NEW — Responsible AI */}
+
+        <ResponsibleAI />
+
+        {/* NEW — Future Infrastructure */}
+
+        <FutureInfrastructure />
+
+      </div>
+
+
+      {/* CTA */}
 
       <section className="py-24 px-6 border-t">
         <div className="max-w-4xl mx-auto text-center">
@@ -203,7 +219,6 @@ export default function FuturePage() {
 
         </div>
       </section>
-
 
     </main>
   )
