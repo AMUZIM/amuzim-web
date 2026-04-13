@@ -1,6 +1,6 @@
-import NetworkHero from "@/components/network/NetworkHero";
-import NetworkFeed from "@/components/network/NetworkFeed";
-import NetworkSidebar from "@/components/network/NetworkSidebar";
+import NetworkHero from "../../../components/network/NetworkHero";
+import NetworkFeed from "../../../components/network/NetworkFeed";
+import NetworkSidebar from "../../../components/network/NetworkSidebar";
 
 export default function NetworkAppPage() {
   return (
