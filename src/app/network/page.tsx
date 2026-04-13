@@ -1,3 +1,6 @@
+import IndustryAccess from "../../components/IndustryAccess"
+import LegalRights from "../../components/LegalRights"
+
 export default function NetworkPage() {
   return (
     <main className="bg-white text-black">
@@ -11,8 +14,12 @@ export default function NetworkPage() {
             AMUZIM Network
           </h1>
 
-          <p className="text-lg text-gray-600 mb-8">
-            Connect creators, industry and music culture
+          <p className="text-lg text-gray-600 mb-6">
+            Where music lovers, creators and industry connect
+          </p>
+
+          <p className="text-gray-500 mb-8">
+            A global music network built around discovery, culture and collaboration.
           </p>
 
           <div className="flex justify-center gap-4">
@@ -34,9 +41,10 @@ export default function NetworkPage() {
         </div>
       </section>
 
-      {/* User Types */}
 
-      <section className="py-20 px-6 border-t">
+      {/* Who is AMUZIM for */}
+
+      <section className="py-24 px-6 border-t">
         <div className="max-w-6xl mx-auto">
 
           <h2 className="text-3xl font-semibold mb-12 text-center">
@@ -51,33 +59,33 @@ export default function NetworkPage() {
               </h3>
 
               <ul className="space-y-2 text-gray-600">
-                <li>Discover creators</li>
-                <li>Follow artists</li>
-                <li>Join discussions</li>
+                <li>Discover new creators</li>
+                <li>Explore curated culture</li>
+                <li>Participate in music communities</li>
               </ul>
             </div>
 
             <div>
               <h3 className="text-xl font-semibold mb-4">
-                Creators & Professionals
+                Creators
               </h3>
 
               <ul className="space-y-2 text-gray-600">
-                <li>Connect with industry</li>
                 <li>Share projects</li>
-                <li>Find opportunities</li>
+                <li>Connect with fans</li>
+                <li>Discover opportunities</li>
               </ul>
             </div>
 
             <div>
               <h3 className="text-xl font-semibold mb-4">
-                Companies & Organizations
+                Industry
               </h3>
 
               <ul className="space-y-2 text-gray-600">
-                <li>Discover creators</li>
-                <li>Build relationships</li>
-                <li>Manage collaborations</li>
+                <li>Discover talent</li>
+                <li>Build collaborations</li>
+                <li>Connect with creators</li>
               </ul>
             </div>
 
@@ -86,28 +94,80 @@ export default function NetworkPage() {
         </div>
       </section>
 
-      {/* Features */}
 
-      <section className="py-20 px-6 border-t">
+      {/* Culture First */}
+
+      <section className="py-24 px-6 border-t">
+        <div className="max-w-4xl mx-auto text-center">
+
+          <h2 className="text-3xl font-semibold mb-6">
+            Culture First Network
+          </h2>
+
+          <p className="text-gray-600 mb-6">
+            AMUZIM connects people through music culture, not just profiles.
+          </p>
+
+          <p className="text-gray-600">
+            Fans, creators and industry interact around discovery,
+            creativity and shared musical interests.
+          </p>
+
+        </div>
+      </section>
+
+
+      {/* Network Features */}
+
+      <section className="py-24 px-6 border-t">
         <div className="max-w-6xl mx-auto">
 
           <h2 className="text-3xl font-semibold mb-12 text-center">
             Inside the Network
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-10 text-gray-600">
 
-            <div>Discussions</div>
-            <div>Creator Profiles</div>
-            <div>Industry Connections</div>
-            <div>Opportunities</div>
-            <div>Collaboration</div>
-            <div>Community</div>
+            <div>
+              <h3 className="font-semibold mb-2">Music Communities</h3>
+              <p>Discover scenes and cultural movements</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">Creator Profiles</h3>
+              <p>Professional creator identities</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">Industry Connections</h3>
+              <p>Connect with labels and professionals</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">Opportunities</h3>
+              <p>Collaborations and projects</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">Discussions</h3>
+              <p>Music and creative conversations</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">Global Community</h3>
+              <p>Music lovers worldwide</p>
+            </div>
 
           </div>
 
         </div>
       </section>
+
+
+      <IndustryAccess />
+
+      <LegalRights />
+
 
       {/* CTA */}
 
@@ -119,7 +179,7 @@ export default function NetworkPage() {
           </h2>
 
           <p className="text-gray-600 mb-8">
-            Connect creators, fans and industry
+            Fans, creators and industry in one network
           </p>
 
           <a
