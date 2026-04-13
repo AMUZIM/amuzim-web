@@ -54,7 +54,7 @@ const articles = [
   { 
     title: "Creator Economy", 
     link: "/editorial/creator-economy-music", 
-    category: "Industry",
+    category: "Creators",
     tags: ["Creators","Economy","Industry"]
   },
   { 
@@ -65,7 +65,7 @@ const articles = [
   },
 ]
 
-const categories = ["All","AI","Culture","Industry","Future","Science"]
+const categories = ["All","AI","Culture","Industry","Future","Science","Creators"]
 
 export default function EditorialPage() {
 
@@ -103,7 +103,16 @@ export default function EditorialPage() {
         </h1>
 
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Music intelligence, culture and future-focused insights shaping the next generation of discovery.
+          Music intelligence, cultural analysis and future insights shaping the evolution of music.
+        </p>
+      </section>
+
+
+      {/* Narrative Section */}
+
+      <section className="mb-24 text-center">
+        <p className="text-gray-600 max-w-3xl mx-auto">
+          Editorial explores ideas, movements and technologies shaping the next generation of music discovery, creation and culture.
         </p>
       </section>
 
