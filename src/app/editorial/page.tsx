@@ -3,24 +3,80 @@
 import { useState } from "react"
 
 const articles = [
-  { title: "AI Music Rights", link: "/editorial/ai-music-rights", category: "AI" },
-  { title: "Music & Dopamine", link: "/editorial/music-dopamine", category: "Science" },
-  { title: "Spanish Urban Movement", link: "/editorial/spanish-urban-movement", category: "Culture" },
-  { title: "AI Ownership Models", link: "/editorial/ai-ownership-models", category: "AI" },
-  { title: "Future Music Discovery", link: "/editorial/future-music-discovery", category: "Future" },
-  { title: "Rise Independent Labels", link: "/editorial/rise-independent-labels", category: "Industry" },
-  { title: "Global Electronic Movement", link: "/editorial/global-electronic-movement", category: "Culture" },
-  { title: "AI Artists", link: "/editorial/music-ai-artists", category: "AI" },
-  { title: "Creator Economy", link: "/editorial/creator-economy-music", category: "Industry" },
-  { title: "Future Music Economy", link: "/editorial/music-future-economy", category: "Future" },
+  { 
+    title: "AI Music Rights", 
+    link: "/editorial/ai-music-rights", 
+    category: "AI",
+    tags: ["AI","Copyright","Ownership"]
+  },
+  { 
+    title: "Music & Dopamine", 
+    link: "/editorial/music-dopamine", 
+    category: "Science",
+    tags: ["Brain","Psychology","Behavior"]
+  },
+  { 
+    title: "Spanish Urban Movement", 
+    link: "/editorial/spanish-urban-movement", 
+    category: "Culture",
+    tags: ["Urban","Global","Culture"]
+  },
+  { 
+    title: "AI Ownership Models", 
+    link: "/editorial/ai-ownership-models", 
+    category: "AI",
+    tags: ["AI","Ownership","Future"]
+  },
+  { 
+    title: "Future Music Discovery", 
+    link: "/editorial/future-music-discovery", 
+    category: "Future",
+    tags: ["Discovery","AI","Future"]
+  },
+  { 
+    title: "Rise Independent Labels", 
+    link: "/editorial/rise-independent-labels", 
+    category: "Industry",
+    tags: ["Labels","Industry","Independent"]
+  },
+  { 
+    title: "Global Electronic Movement", 
+    link: "/editorial/global-electronic-movement", 
+    category: "Culture",
+    tags: ["Electronic","Global","Culture"]
+  },
+  { 
+    title: "AI Artists", 
+    link: "/editorial/music-ai-artists", 
+    category: "AI",
+    tags: ["AI","Artists","Future"]
+  },
+  { 
+    title: "Creator Economy", 
+    link: "/editorial/creator-economy-music", 
+    category: "Industry",
+    tags: ["Creators","Economy","Industry"]
+  },
+  { 
+    title: "Future Music Economy", 
+    link: "/editorial/music-future-economy", 
+    category: "Future",
+    tags: ["Economy","Future","Music"]
+  },
 ]
 
-const categories = ["All", "AI", "Culture", "Industry", "Future", "Science"]
+const categories = ["All","AI","Culture","Industry","Future","Science"]
 
 export default function EditorialPage() {
 
   const [search, setSearch] = useState("")
   const [activeCategory, setActiveCategory] = useState("All")
+  const [activeTag, setActiveTag] = useState("All")
+
+  const allTags = [
+    "All",
+    ...Array.from(new Set(articles.flatMap(a => a.tags)))
+  ]
 
   const filtered = articles.filter(article => {
 
@@ -30,7 +86,10 @@ export default function EditorialPage() {
     const matchesCategory =
       activeCategory === "All" || article.category === activeCategory
 
-    return matchesSearch && matchesCategory
+    const matchesTag =
+      activeTag === "All" || article.tags.includes(activeTag)
+
+    return matchesSearch && matchesCategory && matchesTag
   })
 
   return (
@@ -152,6 +211,27 @@ export default function EditorialPage() {
       </section>
 
 
+      {/* Tags */}
+
+      <section className="mb-16 flex flex-wrap gap-3">
+
+        {allTags.map((tag) => (
+          <button
+            key={tag}
+            onClick={() => setActiveTag(tag)}
+            className={`px-4 py-2 text-sm rounded-full border transition ${
+              activeTag === tag
+                ? "bg-black text-white"
+                : "hover:bg-gray-100"
+            }`}
+          >
+            {tag}
+          </button>
+        ))}
+
+      </section>
+
+
       {/* Search */}
 
       <section className="mb-16">
@@ -180,9 +260,20 @@ export default function EditorialPage() {
               {article.title}
             </h3>
 
-            <p className="text-gray-500">
+            <p className="text-gray-500 mb-3">
               {article.category}
             </p>
+
+            <div className="flex flex-wrap gap-2">
+              {article.tags.map((tag, i) => (
+                <span
+                  key={i}
+                  className="text-xs border px-2 py-1 rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
 
           </a>
         ))}
