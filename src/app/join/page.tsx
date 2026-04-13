@@ -23,6 +23,27 @@ export default function JoinPage() {
       </section>
 
 
+      {/* New Ecosystem Section */}
+
+      <section className="py-24 px-6 border-t">
+        <div className="max-w-4xl mx-auto text-center">
+
+          <h2 className="text-3xl font-semibold mb-6">
+            A New Music Ecosystem
+          </h2>
+
+          <p className="text-gray-600 mb-6">
+            AMUZIM connects discovery, creation and collaboration.
+          </p>
+
+          <p className="text-gray-600">
+            Fans, creators and industry shaping the future of music together.
+          </p>
+
+        </div>
+      </section>
+
+
       {/* User Types */}
 
       <section className="py-24 px-6 border-t">
@@ -37,7 +58,6 @@ export default function JoinPage() {
             {/* Music Lover */}
 
             <div className="border p-8 rounded-lg hover:border-black transition">
-
               <h3 className="text-xl font-semibold mb-4">
                 Music Lover
               </h3>
@@ -54,14 +74,12 @@ export default function JoinPage() {
               >
                 Join as Fan
               </a>
-
             </div>
 
 
             {/* Creator */}
 
             <div className="border p-8 rounded-lg hover:border-black transition">
-
               <h3 className="text-xl font-semibold mb-4">
                 Creator / Professional
               </h3>
@@ -78,14 +96,12 @@ export default function JoinPage() {
               >
                 Join as Creator
               </a>
-
             </div>
 
 
-            {/* Company */}
+            {/* Industry */}
 
             <div className="border p-8 rounded-lg hover:border-black transition">
-
               <h3 className="text-xl font-semibold mb-4">
                 Company / Organization
               </h3>
@@ -102,7 +118,6 @@ export default function JoinPage() {
               >
                 Join as Industry
               </a>
-
             </div>
 
           </div>
@@ -111,7 +126,7 @@ export default function JoinPage() {
       </section>
 
 
-      {/* Why Join */}
+      {/* Early Access */}
 
       <section className="py-24 px-6 border-t">
         <div className="max-w-4xl mx-auto text-center">
@@ -132,7 +147,7 @@ export default function JoinPage() {
       </section>
 
 
-      {/* CTA */}
+      {/* Final CTA */}
 
       <section className="py-24 px-6 border-t">
         <div className="max-w-4xl mx-auto text-center">
