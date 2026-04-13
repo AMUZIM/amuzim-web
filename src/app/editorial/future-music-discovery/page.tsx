@@ -1,4 +1,4 @@
-export default function FutureMusicDiscovery() {
+export default function Page() {
   return (
     <main>
 
