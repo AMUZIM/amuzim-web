@@ -16,6 +16,7 @@ const articles = [
 ]
 
 export default function EditorialPage() {
+
   const [search, setSearch] = useState("")
 
   const filtered = articles.filter(article =>
@@ -25,6 +26,8 @@ export default function EditorialPage() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-24">
 
+      {/* Hero */}
+
       <section className="mb-20 text-center">
         <h1 className="text-4xl md:text-6xl font-semibold mb-6">
           Editorial
@@ -33,6 +36,58 @@ export default function EditorialPage() {
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Music intelligence, culture and future-focused insights shaping the next generation of discovery.
         </p>
+      </section>
+
+
+      {/* Featured */}
+
+      <section className="mb-20">
+
+        <h2 className="text-2xl font-semibold mb-8">
+          Featured Stories
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+
+          <a
+            href="/editorial/ai-music-rights"
+            className="md:col-span-2 border rounded-xl p-10 hover:shadow-md transition"
+          >
+            <h3 className="text-3xl font-semibold mb-4">
+              Can AI Music Be Registered?
+            </h3>
+
+            <p className="text-gray-600">
+              The legal question redefining ownership in AI music
+            </p>
+          </a>
+
+
+          <div className="flex flex-col gap-8">
+
+            <a
+              href="/editorial/music-dopamine"
+              className="border rounded-xl p-6 hover:shadow-md transition"
+            >
+              <h3 className="text-xl font-semibold">
+                Music & Dopamine
+              </h3>
+            </a>
+
+
+            <a
+              href="/editorial/spanish-urban-movement"
+              className="border rounded-xl p-6 hover:shadow-md transition"
+            >
+              <h3 className="text-xl font-semibold">
+                Spanish Urban Movement
+              </h3>
+            </a>
+
+          </div>
+
+        </div>
+
       </section>
 
 
