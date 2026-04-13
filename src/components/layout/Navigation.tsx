@@ -4,10 +4,10 @@ export default function Navigation() {
   return (
     <nav className="flex items-center gap-8 text-sm font-medium">
       <Link href="/explore">Explore</Link>
-      <Link href="/editorial">Editorial</Link>
-      <Link href="/network">Network</Link>
-      <Link href="/future">Future</Link>
       <Link href="/creators">Creators</Link>
+      <Link href="/network">Network</Link>
+      <Link href="/editorial">Editorial</Link>
+      <Link href="/future">Future</Link>
       <Link 
         href="/join"
         className="px-4 py-2 border rounded-md"
