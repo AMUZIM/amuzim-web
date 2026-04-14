@@ -6,6 +6,7 @@ import NetworkAvatar from "./NetworkAvatar";
 import NetworkMeta from "./NetworkMeta";
 import NetworkTag from "./NetworkTag";
 import NetworkTitle from "./NetworkTitle";
+import NetworkSubtitle from "./NetworkSubtitle";
 
 export default function NetworkItem({
   children,
@@ -23,6 +24,10 @@ export default function NetworkItem({
           <NetworkTitle>
             {children}
           </NetworkTitle>
+
+          <NetworkSubtitle>
+            Music Creator
+          </NetworkSubtitle>
 
           <div className="flex gap-2 flex-wrap">
             <NetworkTag>Vocalist</NetworkTag>
