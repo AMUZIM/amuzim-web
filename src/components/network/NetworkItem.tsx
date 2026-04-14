@@ -8,6 +8,7 @@ import NetworkTag from "./NetworkTag";
 import NetworkTitle from "./NetworkTitle";
 import NetworkSubtitle from "./NetworkSubtitle";
 import NetworkStatus from "./NetworkStatus";
+import NetworkLocation from "./NetworkLocation";
 
 export default function NetworkItem({
   children,
@@ -33,6 +34,10 @@ export default function NetworkItem({
           <NetworkStatus>
             Open to collaboration
           </NetworkStatus>
+
+          <NetworkLocation>
+            Global
+          </NetworkLocation>
 
           <div className="flex gap-2 flex-wrap">
             <NetworkTag>Vocalist</NetworkTag>
