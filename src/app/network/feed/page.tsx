@@ -1,8 +1,12 @@
+"use client";
+
+import React from "react";
+import NetworkFeed from "@/components/network/NetworkFeed";
 
 export default function NetworkFeedPage() {
   return (
-    <main>
-      <h1>Network Feed</h1>
-    </main>
+    <div className="space-y-6">
+      <NetworkFeed />
+    </div>
   );
 }
