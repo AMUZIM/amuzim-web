@@ -4,6 +4,7 @@ import { networkGroups } from "@/data/networkGroups";
 import NetworkEmpty from "./NetworkEmpty";
 import NetworkCreate from "./NetworkCreate";
 import NetworkList from "./NetworkList";
+import NetworkItem from "./NetworkItem";
 
 export default function NetworkGroups() {
   return (
@@ -16,9 +17,9 @@ export default function NetworkGroups() {
       ) : (
         <NetworkList>
           {networkGroups.map((group, index) => (
-            <div key={index} className="border rounded-xl p-6">
+            <NetworkItem key={index}>
               Group
-            </div>
+            </NetworkItem>
           ))}
         </NetworkList>
       )}
