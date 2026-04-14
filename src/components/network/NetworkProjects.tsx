@@ -3,6 +3,7 @@
 import { networkProjects } from "@/data/networkProjects";
 import NetworkEmpty from "./NetworkEmpty";
 import NetworkCreate from "./NetworkCreate";
+import NetworkList from "./NetworkList";
 
 export default function NetworkProjects() {
   return (
@@ -13,11 +14,13 @@ export default function NetworkProjects() {
       {!networkProjects.length ? (
         <NetworkEmpty title="No projects yet" />
       ) : (
-        networkProjects.map((project, index) => (
-          <div key={index} className="border rounded-xl p-6">
-            Project
-          </div>
-        ))
+        <NetworkList>
+          {networkProjects.map((project, index) => (
+            <div key={index} className="border rounded-xl p-6">
+              Project
+            </div>
+          ))}
+        </NetworkList>
       )}
 
     </div>
