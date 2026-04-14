@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import NetworkProfile from "@/components/network/NetworkProfile";
 
 export default function NetworkProfilePage() {
   return (
@@ -14,6 +15,8 @@ export default function NetworkProfilePage() {
           Your collaboration profile
         </p>
       </div>
+
+      <NetworkProfile />
 
     </div>
   );
