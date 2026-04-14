@@ -7,6 +7,7 @@ import NetworkMeta from "./NetworkMeta";
 import NetworkTag from "./NetworkTag";
 import NetworkTitle from "./NetworkTitle";
 import NetworkSubtitle from "./NetworkSubtitle";
+import NetworkStatus from "./NetworkStatus";
 
 export default function NetworkItem({
   children,
@@ -29,6 +30,10 @@ export default function NetworkItem({
             Music Creator
           </NetworkSubtitle>
 
+          <NetworkStatus>
+            Open to collaboration
+          </NetworkStatus>
+
           <div className="flex gap-2 flex-wrap">
             <NetworkTag>Vocalist</NetworkTag>
             <NetworkTag>English</NetworkTag>
@@ -36,7 +41,7 @@ export default function NetworkItem({
           </div>
 
           <NetworkMeta>
-            Active • Open to collaboration
+            Active
           </NetworkMeta>
 
         </div>
