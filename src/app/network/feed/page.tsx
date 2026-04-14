@@ -2,7 +2,7 @@ import NetworkHero from "../../../components/network/NetworkHero";
 import NetworkFeed from "../../../components/network/NetworkFeed";
 import NetworkSidebar from "../../../components/network/NetworkSidebar";
 
-export default function NetworkAppPage() {
+export default function NetworkFeedPage() {
   return (
     <main className="min-h-screen bg-black text-white">
 
