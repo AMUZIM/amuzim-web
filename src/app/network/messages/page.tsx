@@ -1,19 +1,15 @@
 "use client";
 
-import React from "react";
+import NetworkHeader from "@/components/network/NetworkHeader";
 
 export default function NetworkMessagesPage() {
   return (
     <div className="space-y-6">
       
-      <div>
-        <h1 className="text-2xl font-semibold">
-          Messages
-        </h1>
-        <p className="text-muted-foreground">
-          Collaboration conversations
-        </p>
-      </div>
+      <NetworkHeader
+        title="Messages"
+        description="Collaboration conversations"
+      />
 
     </div>
   );
