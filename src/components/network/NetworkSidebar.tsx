@@ -34,6 +34,7 @@ export default function NetworkSidebar() {
           </Link>
         ))}
       </div>
+
     </div>
   );
 }
