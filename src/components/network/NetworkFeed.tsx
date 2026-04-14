@@ -1,5 +1,7 @@
 "use client";
 
+import { networkPosts } from "@/data/networkPosts";
+
 export default function NetworkFeed() {
   return (
     <div className="space-y-4">
@@ -8,13 +10,11 @@ export default function NetworkFeed() {
         Create Post
       </div>
 
-      <div className="border rounded-xl p-6">
-        Network Feed Item
-      </div>
-
-      <div className="border rounded-xl p-6">
-        Network Feed Item
-      </div>
+      {networkPosts.map((post, index) => (
+        <div key={index} className="border rounded-xl p-6">
+          Feed Item
+        </div>
+      ))}
 
     </div>
   );
