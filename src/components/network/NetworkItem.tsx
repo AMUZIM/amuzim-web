@@ -5,6 +5,7 @@ import NetworkButton from "./NetworkButton";
 import NetworkAvatar from "./NetworkAvatar";
 import NetworkMeta from "./NetworkMeta";
 import NetworkTag from "./NetworkTag";
+import NetworkTitle from "./NetworkTitle";
 
 export default function NetworkItem({
   children,
@@ -19,9 +20,9 @@ export default function NetworkItem({
         
         <div className="flex-1 space-y-2">
           
-          <div>
+          <NetworkTitle>
             {children}
-          </div>
+          </NetworkTitle>
 
           <div className="flex gap-2 flex-wrap">
             <NetworkTag>Vocalist</NetworkTag>
