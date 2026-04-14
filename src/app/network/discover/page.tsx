@@ -3,6 +3,7 @@
 import NetworkSignals from "@/components/network/NetworkSignals";
 import NetworkHeader from "@/components/network/NetworkHeader";
 import NetworkSearch from "@/components/network/NetworkSearch";
+import NetworkFilters from "@/components/network/NetworkFilters";
 
 export default function NetworkDiscoverPage() {
   return (
@@ -14,6 +15,8 @@ export default function NetworkDiscoverPage() {
       />
 
       <NetworkSearch />
+
+      <NetworkFilters />
 
       <NetworkSignals />
 
