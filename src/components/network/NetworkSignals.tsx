@@ -1,5 +1,7 @@
 "use client";
 
+import { networkSignals } from "@/data/networkSignals";
+
 export default function NetworkSignals() {
   return (
     <div className="border rounded-xl p-4">
@@ -8,10 +10,11 @@ export default function NetworkSignals() {
       </h3>
 
       <div className="space-y-3 text-sm">
-        <div>Trending Creators</div>
-        <div>Active Projects</div>
-        <div>Collaboration Signals</div>
-        <div>Industry Activity</div>
+        {networkSignals.map((signal, index) => (
+          <div key={index}>
+            Signal
+          </div>
+        ))}
       </div>
 
     </div>
