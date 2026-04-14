@@ -4,6 +4,7 @@ import { networkPosts } from "@/data/networkPosts";
 import NetworkEmpty from "./NetworkEmpty";
 import NetworkCreate from "./NetworkCreate";
 import NetworkList from "./NetworkList";
+import NetworkItem from "./NetworkItem";
 
 export default function NetworkFeed() {
   return (
@@ -16,9 +17,9 @@ export default function NetworkFeed() {
       ) : (
         <NetworkList>
           {networkPosts.map((post, index) => (
-            <div key={index} className="border rounded-xl p-6">
+            <NetworkItem key={index}>
               Feed Item
-            </div>
+            </NetworkItem>
           ))}
         </NetworkList>
       )}
