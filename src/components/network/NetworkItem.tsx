@@ -11,6 +11,7 @@ import NetworkStatus from "./NetworkStatus";
 import NetworkLocation from "./NetworkLocation";
 import NetworkStats from "./NetworkStats";
 import NetworkDivider from "./NetworkDivider";
+import NetworkBadge from "./NetworkBadge";
 
 export default function NetworkItem({
   children,
@@ -25,9 +26,15 @@ export default function NetworkItem({
         
         <div className="flex-1 space-y-2">
           
-          <NetworkTitle>
-            {children}
-          </NetworkTitle>
+          <div className="flex items-center gap-2">
+            <NetworkTitle>
+              {children}
+            </NetworkTitle>
+
+            <NetworkBadge>
+              Verified
+            </NetworkBadge>
+          </div>
 
           <NetworkSubtitle>
             Music Creator
