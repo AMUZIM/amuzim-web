@@ -1,5 +1,7 @@
 "use client";
 
+import { networkGroups } from "@/data/networkGroups";
+
 export default function NetworkGroups() {
   return (
     <div className="space-y-4">
@@ -8,13 +10,11 @@ export default function NetworkGroups() {
         Create Group
       </div>
 
-      <div className="border rounded-xl p-6">
-        Discover Groups
-      </div>
-
-      <div className="border rounded-xl p-6">
-        Active Groups
-      </div>
+      {networkGroups.map((group, index) => (
+        <div key={index} className="border rounded-xl p-6">
+          Group
+        </div>
+      ))}
 
     </div>
   );
