@@ -1,32 +1,21 @@
-import { networkGroups } from "@/data/networkGroups"
+"use client";
 
 export default function NetworkGroups() {
   return (
-    <div className="border border-neutral-800 rounded-xl p-5">
+    <div className="space-y-4">
 
-      <h3 className="font-medium mb-4">
-        Groups
-      </h3>
+      <div className="border rounded-xl p-6">
+        Create Group
+      </div>
 
-      <div className="space-y-3 text-sm">
+      <div className="border rounded-xl p-6">
+        Discover Groups
+      </div>
 
-        {networkGroups.map((group) => (
-          <div
-            key={group.id}
-            className="cursor-pointer hover:text-white text-neutral-400"
-          >
-            <div className="font-medium">
-              {group.name}
-            </div>
-
-            <div className="text-xs text-neutral-500">
-              {group.members} members
-            </div>
-          </div>
-        ))}
-
+      <div className="border rounded-xl p-6">
+        Active Groups
       </div>
 
     </div>
-  )
+  );
 }
