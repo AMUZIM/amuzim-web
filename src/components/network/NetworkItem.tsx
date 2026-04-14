@@ -3,6 +3,7 @@
 import NetworkActions from "./NetworkActions";
 import NetworkButton from "./NetworkButton";
 import NetworkAvatar from "./NetworkAvatar";
+import NetworkMeta from "./NetworkMeta";
 
 export default function NetworkItem({
   children,
@@ -14,9 +15,17 @@ export default function NetworkItem({
 
       <div className="flex gap-3 items-start">
         <NetworkAvatar />
-        <div className="flex-1">
-          {children}
+        
+        <div className="flex-1 space-y-1">
+          <div>
+            {children}
+          </div>
+
+          <NetworkMeta>
+            Vocalist • English • Spanish
+          </NetworkMeta>
         </div>
+
       </div>
 
       <NetworkActions>
