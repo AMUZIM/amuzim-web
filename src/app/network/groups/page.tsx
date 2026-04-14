@@ -1,20 +1,16 @@
 "use client";
 
-import React from "react";
 import NetworkGroups from "@/components/network/NetworkGroups";
+import NetworkHeader from "@/components/network/NetworkHeader";
 
 export default function NetworkGroupsPage() {
   return (
     <div className="space-y-6">
       
-      <div>
-        <h1 className="text-2xl font-semibold">
-          Groups
-        </h1>
-        <p className="text-muted-foreground">
-          Collaboration groups across AMUZIM
-        </p>
-      </div>
+      <NetworkHeader
+        title="Groups"
+        description="Collaboration groups across AMUZIM"
+      />
 
       <NetworkGroups />
 
