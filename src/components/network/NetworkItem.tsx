@@ -9,6 +9,7 @@ import NetworkTitle from "./NetworkTitle";
 import NetworkSubtitle from "./NetworkSubtitle";
 import NetworkStatus from "./NetworkStatus";
 import NetworkLocation from "./NetworkLocation";
+import NetworkStats from "./NetworkStats";
 
 export default function NetworkItem({
   children,
@@ -44,6 +45,11 @@ export default function NetworkItem({
             <NetworkTag>English</NetworkTag>
             <NetworkTag>Spanish</NetworkTag>
           </div>
+
+          <NetworkStats>
+            <div>12 Projects</div>
+            <div>8 Collaborations</div>
+          </NetworkStats>
 
           <NetworkMeta>
             Active
