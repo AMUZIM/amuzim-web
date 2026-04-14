@@ -1,3 +1,4 @@
+import { networkGroups } from "@/data/networkGroups"
 
 export default function NetworkGroups() {
   return (
@@ -7,22 +8,25 @@ export default function NetworkGroups() {
         Groups
       </h3>
 
-      <div className="space-y-3 text-sm text-neutral-400">
+      <div className="space-y-3 text-sm">
 
-        <div className="hover:text-white cursor-pointer">
-          Future Sounds
-        </div>
+        {networkGroups.map((group) => (
+          <div
+            key={group.id}
+            className="cursor-pointer hover:text-white text-neutral-400"
+          >
+            <div className="font-medium">
+              {group.name}
+            </div>
 
-        <div className="hover:text-white cursor-pointer">
-          Emerging Creators
-        </div>
-
-        <div className="hover:text-white cursor-pointer">
-          Industry Circle
-        </div>
+            <div className="text-xs text-neutral-500">
+              {group.members} members
+            </div>
+          </div>
+        ))}
 
       </div>
 
     </div>
-  );
+  )
 }
