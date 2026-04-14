@@ -3,6 +3,7 @@
 import { networkPosts } from "@/data/networkPosts";
 import NetworkEmpty from "./NetworkEmpty";
 import NetworkCreate from "./NetworkCreate";
+import NetworkList from "./NetworkList";
 
 export default function NetworkFeed() {
   return (
@@ -13,11 +14,13 @@ export default function NetworkFeed() {
       {!networkPosts.length ? (
         <NetworkEmpty title="No posts yet" />
       ) : (
-        networkPosts.map((post, index) => (
-          <div key={index} className="border rounded-xl p-6">
-            Feed Item
-          </div>
-        ))
+        <NetworkList>
+          {networkPosts.map((post, index) => (
+            <div key={index} className="border rounded-xl p-6">
+              Feed Item
+            </div>
+          ))}
+        </NetworkList>
       )}
 
     </div>
