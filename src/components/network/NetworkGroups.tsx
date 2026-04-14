@@ -3,6 +3,7 @@
 import { networkGroups } from "@/data/networkGroups";
 import NetworkEmpty from "./NetworkEmpty";
 import NetworkCreate from "./NetworkCreate";
+import NetworkList from "./NetworkList";
 
 export default function NetworkGroups() {
   return (
@@ -13,11 +14,13 @@ export default function NetworkGroups() {
       {!networkGroups.length ? (
         <NetworkEmpty title="No groups yet" />
       ) : (
-        networkGroups.map((group, index) => (
-          <div key={index} className="border rounded-xl p-6">
-            Group
-          </div>
-        ))
+        <NetworkList>
+          {networkGroups.map((group, index) => (
+            <div key={index} className="border rounded-xl p-6">
+              Group
+            </div>
+          ))}
+        </NetworkList>
       )}
 
     </div>
