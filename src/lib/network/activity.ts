@@ -1,5 +1,3 @@
-import { emitSignal } from "@/lib/network/signals";
-
 export type ActivityType =
   | "connection_request"
   | "connection_accepted"
@@ -18,20 +16,6 @@ let activities: NetworkActivity[] = [];
 
 const generateId = () => Math.random().toString(36).substring(2, 9);
 
-const mapToSignal = (type: ActivityType) => {
-  switch (type) {
-    case "connection_request":
-    case "connection_accepted":
-      return "connection";
-    case "follow":
-      return "follow";
-    case "message":
-      return "message";
-    default:
-      return "activity";
-  }
-};
-
 export async function trackActivity(
   userId: string,
   type: ActivityType,
@@ -46,8 +30,6 @@ export async function trackActivity(
   };
 
   activities.push(activity);
-
-  await emitSignal(userId, mapToSignal(type));
 
   return activity;
 }
