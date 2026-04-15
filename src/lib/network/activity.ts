@@ -9,6 +9,7 @@ export interface NetworkActivity {
   userId: string;
   type: ActivityType;
   targetUserId?: string;
+  metadata?: Record<string, any>;
   createdAt: string;
 }
 
@@ -19,13 +20,15 @@ const generateId = () => Math.random().toString(36).substring(2, 9);
 export async function trackActivity(
   userId: string,
   type: ActivityType,
-  targetUserId?: string
+  targetUserId?: string,
+  metadata?: Record<string, any>
 ): Promise<NetworkActivity> {
   const activity: NetworkActivity = {
     id: generateId(),
     userId,
     type,
     targetUserId,
+    metadata,
     createdAt: new Date().toISOString(),
   };
 
