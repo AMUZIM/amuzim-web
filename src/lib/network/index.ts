@@ -2,6 +2,7 @@ export * from "./connect";
 export * from "./connections";
 export * from "./follow";
 export * from "./message";
+export * from "./thread";
 export * from "./profile";
 export * from "./activity";
 export * from "./signals";
