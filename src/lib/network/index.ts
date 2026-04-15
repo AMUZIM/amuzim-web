@@ -3,4 +3,6 @@ export * from "./follow";
 export * from "./message";
 export * from "./profile";
 export * from "./activity";
+export * from "./signals";
 export * from "./discovery";
+export * from "./feed";
