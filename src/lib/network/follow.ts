@@ -45,8 +45,6 @@ export async function unfollowUser(
 
   follows.splice(index, 1);
 
-  await trackActivity(followerId, "unfollow", followingId);
-
   return true;
 }
 
