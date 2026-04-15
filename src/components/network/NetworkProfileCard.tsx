@@ -4,6 +4,7 @@ import { useState } from "react";
 import { NetworkProfile } from "@/types/network";
 import NetworkConnectButton from "./NetworkConnectButton";
 import NetworkProfilePreview from "./NetworkProfilePreview";
+import NetworkModal from "./NetworkModal";
 
 type Props = {
   profile: NetworkProfile;
@@ -15,37 +16,45 @@ export default function NetworkProfileCard({
   currentUserId,
 }: Props) {
   const [hovered, setHovered] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div
-      className="relative p-4 border rounded-xl flex items-center justify-between"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gray-200" />
-        <div>
-          <div className="text-sm font-medium">
-            {profile.username}
-          </div>
-          {profile.bio && (
-            <div className="text-xs text-gray-500">
-              {profile.bio}
+    <>
+      <div
+        className="relative p-4 border rounded-xl flex items-center justify-between"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onClick={() => setOpen(true)}
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-gray-200" />
+          <div>
+            <div className="text-sm font-medium">
+              {profile.username}
             </div>
-          )}
+            {profile.bio && (
+              <div className="text-xs text-gray-500">
+                {profile.bio}
+              </div>
+            )}
+          </div>
         </div>
+
+        <NetworkConnectButton
+          currentUserId={currentUserId}
+          targetUserId={profile.userId}
+        />
+
+        {hovered && (
+          <div className="absolute top-full mt-2 left-0 z-10">
+            <NetworkProfilePreview profile={profile} />
+          </div>
+        )}
       </div>
 
-      <NetworkConnectButton
-        currentUserId={currentUserId}
-        targetUserId={profile.userId}
-      />
-
-      {hovered && (
-        <div className="absolute top-full mt-2 left-0 z-10">
-          <NetworkProfilePreview profile={profile} />
-        </div>
-      )}
-    </div>
+      <NetworkModal open={open} onClose={() => setOpen(false)}>
+        <NetworkProfilePreview profile={profile} />
+      </NetworkModal>
+    </>
   );
 }
