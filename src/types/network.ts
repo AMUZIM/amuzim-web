@@ -1,26 +1,15 @@
-export type ConnectionStatus =
-  | "none"
-  | "pending"
-  | "connected"
-  | "blocked";
-
-export interface NetworkConnection {
+export interface NetworkProfile {
   id: string;
 
-  requesterId: string;
-  receiverId: string;
+  userId: string;
+  username: string;
 
-  status: ConnectionStatus;
+  avatar?: string;
+  bio?: string;
+  location?: string;
+
+  skills?: string[];
 
   createdAt: string;
   updatedAt: string;
-}
-
-export interface NetworkFollow {
-  id: string;
-
-  followerId: string;
-  followingId: string;
-
-  createdAt: string;
 }
