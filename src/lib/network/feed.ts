@@ -4,10 +4,12 @@ import { NetworkActivity } from "@/lib/network/activity";
 export async function getNetworkFeed(
   userId: string
 ): Promise<NetworkActivity[]> {
-  // simple v1: own activity feed
-  const activities = await getUserActivities(userId);
+  const own = await getUserActivities(userId);
 
-  return activities.sort(
+  // v2: simple enriched feed (future: connections)
+  const feed = [...own];
+
+  return feed.sort(
     (a, b) =>
       new Date(b.createdAt).getTime() -
       new Date(a.createdAt).getTime()
