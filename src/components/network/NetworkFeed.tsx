@@ -2,35 +2,29 @@
 
 import { useEffect, useState } from "react";
 import { getNetworkFeed } from "@/lib/network";
-import NetworkItem from "./NetworkItem";
-import NetworkState from "./NetworkState";
-import { NetworkActivity } from "@/lib/network/activity";
+import NetworkItem from "@/components/network/NetworkItem";
+import NetworkState from "@/components/network/NetworkState";
+
+type Activity = {
+  id: string;
+  type: string;
+  targetUserId?: string;
+  createdAt: string;
+};
 
 type Props = {
   userId: string;
 };
 
 export default function NetworkFeed({ userId }: Props) {
-  const [feed, setFeed] = useState<NetworkActivity[]>([]);
+  const [feed, setFeed] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
-      try {"use client";
-
-import NetworkFeed from "@/components/network/NetworkFeed";
-
-export default function FeedPage() {
-  const userId = "user_1"; // TODO: replace with auth
-
-  return (
-    <div className="p-6">
-      <NetworkFeed userId={userId} />
-    </div>
-  );
-}
+      try {
         const data = await getNetworkFeed(userId);
-        setFeed(data);
+        setFeed(data as Activity[]);
       } catch (e) {
         console.error(e);
       } finally {
