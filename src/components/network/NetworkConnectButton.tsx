@@ -50,20 +50,13 @@ export default function NetworkConnectButton({
     }
   };
 
-  const label =
-    status === "none"
-      ? "Connect"
-      : status === "pending"
-      ? "Pending"
-      : "Connected";
-
   return (
     <button
       onClick={handleClick}
       disabled={loading}
       className="px-4 py-2 rounded-xl text-sm border"
     >
-      {loading ? "..." : label}
+      {loading ? "..." : status}
     </button>
   );
 }
