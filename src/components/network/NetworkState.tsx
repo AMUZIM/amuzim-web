@@ -1,7 +1,5 @@
 "use client";
 
-import NetworkEmptyState from "./NetworkEmptyState";
-
 type Props = {
   type: "loading" | "empty" | "error";
   message?: string;
@@ -25,9 +23,8 @@ export default function NetworkState({ type, message }: Props) {
   }
 
   return (
-    <NetworkEmptyState
-      title={message || "No data"}
-      description="Nothing to display yet"
-    />
+    <div className="text-sm text-gray-400">
+      {message || "No data"}
+    </div>
   );
 }
