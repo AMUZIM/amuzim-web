@@ -44,9 +44,15 @@ export async function acceptConnection(
 }
 
 export async function cancelConnection(
-  connectionId: string
+  requesterId: string,
+  receiverId: string
 ): Promise<boolean> {
-  const index = connections.findIndex((c) => c.id === connectionId);
+  const index = connections.findIndex(
+    (c) =>
+      c.requesterId === requesterId &&
+      c.receiverId === receiverId
+  );
+
   if (index === -1) return false;
 
   connections.splice(index, 1);
