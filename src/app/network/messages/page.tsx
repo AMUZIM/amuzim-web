@@ -2,13 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { getUserThreads } from "@/lib/network";
-import { NetworkThread } from "@/lib/network/thread";
 import NetworkThreadView from "@/components/network/NetworkThreadView";
 
 export default function MessagesPage() {
   const userId = "user_1";
 
-  const [threads, setThreads] = useState<NetworkThread[]>([]);
+  const [threads, setThreads] = useState<any[]>([]);
   const [activeThread, setActiveThread] = useState<string | null>(null);
 
   useEffect(() => {
@@ -16,13 +15,13 @@ export default function MessagesPage() {
       const data = await getUserThreads(userId);
       setThreads(data);
 
-      if (data.length && !activeThread) {
+      if (data.length) {
         setActiveThread(data[0].id);
       }
     };
 
     load();
-  }, []);
+  }, [userId]);
 
   return (
     <div className="flex gap-4">
@@ -33,7 +32,7 @@ export default function MessagesPage() {
             onClick={() => setActiveThread(t.id)}
             className="text-left text-sm border p-2 rounded-lg"
           >
-            {t.participants.join(" / ")}
+            {t.participants?.join(" / ") || t.id}
           </button>
         ))}
       </div>
