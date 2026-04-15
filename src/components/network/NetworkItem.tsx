@@ -1,81 +1,34 @@
 "use client";
 
+import { NetworkProfile } from "@/types/network";
 import NetworkActions from "./NetworkActions";
 import NetworkButton from "./NetworkButton";
-import NetworkAvatar from "./NetworkAvatar";
-import NetworkMeta from "./NetworkMeta";
-import NetworkTag from "./NetworkTag";
-import NetworkTitle from "./NetworkTitle";
-import NetworkSubtitle from "./NetworkSubtitle";
-import NetworkStatus from "./NetworkStatus";
-import NetworkLocation from "./NetworkLocation";
-import NetworkStats from "./NetworkStats";
-import NetworkDivider from "./NetworkDivider";
-import NetworkBadge from "./NetworkBadge";
 
-export default function NetworkItem({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+type Props = {
+  profile: NetworkProfile;
+};
+
+export default function NetworkItem({ profile }: Props) {
   return (
-    <div className="border rounded-xl p-6 space-y-4">
-
-      <div className="flex gap-3 items-start">
-        <NetworkAvatar />
-        
-        <div className="flex-1 space-y-2">
-          
-          <div className="flex items-center gap-2">
-            <NetworkTitle>
-              {children}
-            </NetworkTitle>
-
-            <NetworkBadge>
-              Verified
-            </NetworkBadge>
+    <div className="p-4 border rounded-xl flex flex-col gap-3">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-gray-200" />
+        <div>
+          <div className="text-sm font-medium">
+            {profile.username}
           </div>
-
-          <NetworkSubtitle>
-            Music Creator
-          </NetworkSubtitle>
-
-          <NetworkStatus>
-            Open to collaboration
-          </NetworkStatus>
-
-          <NetworkLocation>
-            Global
-          </NetworkLocation>
-
-          <div className="flex gap-2 flex-wrap">
-            <NetworkTag>Vocalist</NetworkTag>
-            <NetworkTag>English</NetworkTag>
-            <NetworkTag>Spanish</NetworkTag>
-          </div>
-
-          <NetworkDivider />
-
-          <NetworkStats>
-            <div>12 Projects</div>
-            <div>8 Collaborations</div>
-          </NetworkStats>
-
-          <NetworkMeta>
-            Active
-          </NetworkMeta>
-
+          {profile.bio && (
+            <div className="text-xs text-gray-500">
+              {profile.bio}
+            </div>
+          )}
         </div>
-
       </div>
-
-      <NetworkDivider />
 
       <NetworkActions>
         <NetworkButton>Connect</NetworkButton>
         <NetworkButton>Message</NetworkButton>
       </NetworkActions>
-
     </div>
   );
 }
