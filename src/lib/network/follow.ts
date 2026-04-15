@@ -1,6 +1,5 @@
 import { NetworkFollow } from "@/types/network";
 import { trackActivity } from "@/lib/network/activity";
-import { createNotification } from "@/lib/network/notifications";
 
 let follows: NetworkFollow[] = [];
 
@@ -28,7 +27,6 @@ export async function followUser(
   follows.push(follow);
 
   await trackActivity(followerId, "follow", followingId);
-  await createNotification(followingId, "follow", followerId);
 
   return follow;
 }
@@ -46,6 +44,9 @@ export async function unfollowUser(
   if (index === -1) return false;
 
   follows.splice(index, 1);
+
+  await trackActivity(followerId, "unfollow", followingId);
+
   return true;
 }
 
