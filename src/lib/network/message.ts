@@ -1,4 +1,5 @@
 import { trackActivity } from "@/lib/network/activity";
+import { createNotification } from "@/lib/network/notifications";
 
 export interface NetworkMessage {
   id: string;
@@ -28,6 +29,7 @@ export async function sendMessage(
   messages.push(message);
 
   await trackActivity(senderId, "message", receiverId);
+  await createNotification(receiverId, "message", senderId);
 
   return message;
 }
