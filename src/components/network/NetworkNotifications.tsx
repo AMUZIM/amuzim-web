@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getUserNotifications, markAsRead } from "@/lib/network";
+import NetworkState from "./NetworkState";
 
 type Notification = {
   id: string;
@@ -16,11 +17,18 @@ type Props = {
 
 export default function NetworkNotifications({ userId }: Props) {
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
-      const data = await getUserNotifications(userId);
-      setNotifications(data);
+      try {
+        const data = await getUserNotifications(userId);
+        setNotifications(data);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
     };
 
     load();
@@ -35,13 +43,10 @@ export default function NetworkNotifications({ userId }: Props) {
     );
   };
 
-  if (!notifications.length) {
-    return (
-      <div className="text-sm text-gray-400">
-        No notifications
-      </div>
-    );
-  }
+  if (loading) return <NetworkState type="loading" />;
+
+  if (!notifications.length)
+    return <NetworkState type="empty" message="No notifications" />;
 
   return (
     <div className="flex flex-col gap-2">
@@ -49,8 +54,8 @@ export default function NetworkNotifications({ userId }: Props) {
         <div
           key={n.id}
           onClick={() => handleRead(n.id)}
-          className={`text-sm border p-2 rounded-lg cursor-pointer ${
-            n.read ? "opacity-50" : ""
+          className={`text-sm border p-2 rounded-lg cursor-pointer transition ${
+            n.read ? "opacity-50" : "hover:bg-gray-50"
           }`}
         >
           {n.type} from {n.fromUserId || "system"}
