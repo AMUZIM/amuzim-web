@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import {
   sendConnectionRequest,
-  cancelConnection,
   getConnectionStatus,
 } from "@/lib/network/connect";
+
+type Status = "none" | "pending" | "connected";
 
 type Props = {
   currentUserId: string;
@@ -16,9 +17,7 @@ export default function NetworkConnectButton({
   currentUserId,
   targetUserId,
 }: Props) {
-  const [status, setStatus] = useState<
-    "none" | "pending" | "connected"
-  >("none");
+  const [status, setStatus] = useState<Status>("none");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ export default function NetworkConnectButton({
         currentUserId,
         targetUserId
       );
-      setStatus(s === "accepted" ? "connected" : s);
+      setStatus(s as Status);
     };
 
     loadStatus();
@@ -41,9 +40,6 @@ export default function NetworkConnectButton({
       if (status === "none") {
         await sendConnectionRequest(currentUserId, targetUserId);
         setStatus("pending");
-      } else if (status === "pending") {
-        // simple cancel (find + remove)
-        setStatus("none");
       }
     } finally {
       setLoading(false);
