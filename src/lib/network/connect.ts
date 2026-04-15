@@ -1,7 +1,5 @@
 import { NetworkConnection, ConnectionStatus } from "@/types/network";
 import { trackActivity } from "@/lib/network/activity";
-// ❌ eliminar import roto
-// import { createNotification } from "@/lib/network/notifications";
 
 let connections: NetworkConnection[] = [];
 
@@ -37,31 +35,51 @@ export async function sendConnectionRequest(
 }
 
 export async function acceptConnection(
-  connectionId: string
+  requesterId: string,
+  receiverId: string
 ): Promise<NetworkConnection | null> {
-  const connection = connections.find((c) => c.id === connectionId);
+  const connection = connections.find(
+    (c) =>
+      c.requesterId === requesterId &&
+      c.receiverId === receiverId &&
+      c.status === "pending"
+  );
+
   if (!connection) return null;
 
   connection.status = "connected";
   connection.updatedAt = new Date().toISOString();
 
-  await trackActivity(
-    connection.receiverId,
-    "connection_accepted",
-    connection.requesterId
-  );
+  await trackActivity(receiverId, "connection_accepted", requesterId);
 
   return connection;
 }
 
-export async function cancelConnection(
+export async function rejectConnection(
   requesterId: string,
   receiverId: string
 ): Promise<boolean> {
   const index = connections.findIndex(
     (c) =>
       c.requesterId === requesterId &&
-      c.receiverId === receiverId
+      c.receiverId === receiverId &&
+      c.status === "pending"
+  );
+
+  if (index === -1) return false;
+
+  connections.splice(index, 1);
+  return true;
+}
+
+export async function removeConnection(
+  userA: string,
+  userB: string
+): Promise<boolean> {
+  const index = connections.findIndex(
+    (c) =>
+      (c.requesterId === userA && c.receiverId === userB) ||
+      (c.requesterId === userB && c.receiverId === userA)
   );
 
   if (index === -1) return false;
