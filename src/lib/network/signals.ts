@@ -39,3 +39,20 @@ export async function getUserSignals(
 ): Promise<NetworkSignal[]> {
   return signals.filter((s) => s.userId === userId);
 }
+
+export async function getTrendingSignals(): Promise<SignalType[]> {
+  const count: Record<SignalType, number> = {
+    connection: 0,
+    follow: 0,
+    message: 0,
+    activity: 0,
+  };
+
+  signals.forEach((s) => {
+    count[s.type]++;
+  });
+
+  return Object.entries(count)
+    .sort((a, b) => b[1] - a[1])
+    .map(([type]) => type as SignalType);
+}
