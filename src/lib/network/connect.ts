@@ -1,5 +1,6 @@
 import { NetworkConnection, ConnectionStatus } from "@/types/network";
 import { trackActivity } from "@/lib/network/activity";
+import { createNotification } from "@/lib/network/notifications";
 
 let connections: NetworkConnection[] = [];
 
@@ -30,6 +31,7 @@ export async function sendConnectionRequest(
   connections.push(newConnection);
 
   await trackActivity(requesterId, "connection_request", receiverId);
+  await createNotification(receiverId, "connection_request", requesterId);
 
   return newConnection;
 }
@@ -44,6 +46,7 @@ export async function acceptConnection(
   connection.updatedAt = new Date().toISOString();
 
   await trackActivity(connection.receiverId, "connection_accepted", connection.requesterId);
+  await createNotification(connection.requesterId, "connection_accepted", connection.receiverId);
 
   return connection;
 }
