@@ -5,7 +5,7 @@ import {
   sendConnectionRequest,
   cancelConnection,
   getConnectionStatus,
-} from "@/lib/network/connect";
+} from "@/lib/network";
 
 type Status = "none" | "pending" | "connected";
 
