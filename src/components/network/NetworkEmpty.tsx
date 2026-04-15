@@ -1,13 +1,20 @@
 "use client";
 
+import NetworkEmptyState from "./NetworkEmptyState";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
 export default function NetworkEmpty({
-  title,
-}: {
-  title: string;
-}) {
+  title = "No data",
+  description = "Nothing to display yet",
+}: Props) {
   return (
-    <div className="border rounded-xl p-8 text-center text-muted-foreground">
-      {title}
-    </div>
+    <NetworkEmptyState
+      title={title}
+      description={description}
+    />
   );
 }
