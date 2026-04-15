@@ -1,38 +1,32 @@
 "use client";
 
-import NetworkSignals from "@/components/network/NetworkSignals";
-import NetworkHeader from "@/components/network/NetworkHeader";
-import NetworkSearch from "@/components/network/NetworkSearch";
-import NetworkFilters from "@/components/network/NetworkFilters";
-import NetworkTabs from "@/components/network/NetworkTabs";
-import NetworkActivity from "@/components/network/NetworkActivity";
-import NetworkSection from "@/components/network/NetworkSection";
+import { useEffect, useState } from "react";
+import {
+  getDiscoveryProfiles,
+} from "@/lib/network";
+import { NetworkProfile } from "@/types/network";
+import NetworkProfileList from "@/components/network/NetworkProfileList";
 
-export default function NetworkDiscoverPage() {
+export default function DiscoverPage() {
+  const [profiles, setProfiles] = useState<NetworkProfile[]>([]);
+
+  const currentUserId = "user_1"; // TODO: replace with auth
+
+  useEffect(() => {
+    const load = async () => {
+      const data = await getDiscoveryProfiles();
+      setProfiles(data);
+    };
+
+    load();
+  }, []);
+
   return (
-    <div className="space-y-6">
-      
-      <NetworkHeader
-        title="Discover"
-        description="Discover creators, projects and collaboration signals"
+    <div className="p-6">
+      <NetworkProfileList
+        profiles={profiles}
+        currentUserId={currentUserId}
       />
-
-      <NetworkSearch />
-
-      <NetworkTabs />
-
-      <NetworkSection title="Filters">
-        <NetworkFilters />
-      </NetworkSection>
-
-      <NetworkSection title="Activity">
-        <NetworkActivity />
-      </NetworkSection>
-
-      <NetworkSection title="Signals">
-        <NetworkSignals />
-      </NetworkSection>
-
     </div>
   );
 }
