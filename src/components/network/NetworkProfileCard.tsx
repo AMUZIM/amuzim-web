@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { NetworkProfile } from "@/types/network";
 import NetworkConnectButton from "./NetworkConnectButton";
+import NetworkFollowButton from "./NetworkFollowButton";
 import NetworkProfilePreview from "./NetworkProfilePreview";
 import NetworkModal from "./NetworkModal";
 
@@ -40,10 +41,16 @@ export default function NetworkProfileCard({
           </div>
         </div>
 
-        <NetworkConnectButton
-          currentUserId={currentUserId}
-          targetUserId={profile.userId}
-        />
+        <div className="flex gap-2">
+          <NetworkConnectButton
+            currentUserId={currentUserId}
+            targetUserId={profile.userId}
+          />
+          <NetworkFollowButton
+            currentUserId={currentUserId}
+            targetUserId={profile.userId}
+          />
+        </div>
 
         {hovered && (
           <div className="absolute top-full mt-2 left-0 z-10">
