@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getUserNotifications } from "@/lib/network";
+import { getUserNotifications, markAsRead } from "@/lib/network";
 
 type Notification = {
   id: string;
@@ -26,6 +26,15 @@ export default function NetworkNotifications({ userId }: Props) {
     load();
   }, [userId]);
 
+  const handleRead = async (id: string) => {
+    await markAsRead(id);
+    setNotifications((prev) =>
+      prev.map((n) =>
+        n.id === id ? { ...n, read: true } : n
+      )
+    );
+  };
+
   if (!notifications.length) {
     return (
       <div className="text-sm text-gray-400">
@@ -39,7 +48,10 @@ export default function NetworkNotifications({ userId }: Props) {
       {notifications.map((n) => (
         <div
           key={n.id}
-          className="text-sm border p-2 rounded-lg"
+          onClick={() => handleRead(n.id)}
+          className={`text-sm border p-2 rounded-lg cursor-pointer ${
+            n.read ? "opacity-50" : ""
+          }`}
         >
           {n.type} from {n.fromUserId || "system"}
         </div>
