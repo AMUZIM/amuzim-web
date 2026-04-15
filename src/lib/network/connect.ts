@@ -69,6 +69,7 @@ export async function rejectConnection(
   if (index === -1) return false;
 
   connections.splice(index, 1);
+
   return true;
 }
 
@@ -85,6 +86,7 @@ export async function removeConnection(
   if (index === -1) return false;
 
   connections.splice(index, 1);
+
   return true;
 }
 
