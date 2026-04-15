@@ -1,4 +1,5 @@
 import { NetworkFollow } from "@/types/network";
+import { trackActivity } from "@/lib/network/activity";
 
 let follows: NetworkFollow[] = [];
 
@@ -24,6 +25,8 @@ export async function followUser(
   };
 
   follows.push(follow);
+
+  await trackActivity(followerId, "follow", followingId);
 
   return follow;
 }
