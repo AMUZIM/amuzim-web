@@ -1,19 +1,11 @@
 "use client";
 
 import NetworkFeed from "@/components/network/NetworkFeed";
-import NetworkHeader from "@/components/network/NetworkHeader";
 
-export default function NetworkFeedPage() {
+export default function FeedPage() {
   return (
-    <div className="space-y-6">
-      
-      <NetworkHeader
-        title="Feed"
-        description="Collaboration activity across AMUZIM"
-      />
-
-      <NetworkFeed />
-
+    <div className="p-6">
+      <NetworkFeed userId="user_1" />
     </div>
   );
 }
