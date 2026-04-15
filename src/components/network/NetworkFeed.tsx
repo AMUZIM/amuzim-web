@@ -16,7 +16,19 @@ export default function NetworkFeed({ userId }: Props) {
 
   useEffect(() => {
     const load = async () => {
-      try {
+      try {"use client";
+
+import NetworkFeed from "@/components/network/NetworkFeed";
+
+export default function FeedPage() {
+  const userId = "user_1"; // TODO: replace with auth
+
+  return (
+    <div className="p-6">
+      <NetworkFeed userId={userId} />
+    </div>
+  );
+}
         const data = await getNetworkFeed(userId);
         setFeed(data);
       } catch (e) {
