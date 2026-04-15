@@ -29,7 +29,9 @@ export async function sendConnectionRequest(
 
   connections.push(newConnection);
 
-  await trackActivity(requesterId, "connection_request", receiverId);
+  await trackActivity(requesterId, "connection_request", receiverId, {
+    direction: "outgoing",
+  });
 
   return newConnection;
 }
@@ -50,7 +52,9 @@ export async function acceptConnection(
   connection.status = "connected";
   connection.updatedAt = new Date().toISOString();
 
-  await trackActivity(receiverId, "connection_accepted", requesterId);
+  await trackActivity(receiverId, "connection_accepted", requesterId, {
+    direction: "incoming",
+  });
 
   return connection;
 }
