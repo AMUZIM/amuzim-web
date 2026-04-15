@@ -54,3 +54,11 @@ export async function getUserThreads(
         new Date(a.updatedAt).getTime()
     );
 }
+
+export async function getThreadByUsers(
+  userA: string,
+  userB: string
+): Promise<NetworkThread | null> {
+  const id = generateThreadId(userA, userB);
+  return threads.find((t) => t.id === id) || null;
+}
