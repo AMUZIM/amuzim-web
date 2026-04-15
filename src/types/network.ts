@@ -1,26 +1,17 @@
-export interface NetworkPost {
-  id: string;
-  userId: string;
-  content: string;
-  createdAt: string;
-}
+export type ConnectionStatus =
+  | "pending"
+  | "accepted"
+  | "rejected"
+  | "blocked";
 
-export interface NetworkProject {
+export interface NetworkConnection {
   id: string;
-  title: string;
-  description: string;
-  createdAt: string;
-}
 
-export interface NetworkGroup {
-  id: string;
-  name: string;
-  description: string;
-  createdAt: string;
-}
+  requesterId: string;
+  receiverId: string;
 
-export interface NetworkSignal {
-  id: string;
-  type: string;
+  status: ConnectionStatus;
+
   createdAt: string;
+  updatedAt: string;
 }
