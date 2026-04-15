@@ -41,11 +41,14 @@ export default function NetworkFeed({ userId }: Props) {
     return <NetworkState type="empty" message="No activity yet" />;
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       {feed.map((item) => (
         <NetworkItem key={item.id}>
-          <div className="text-sm">
-            {item.type} — {item.targetUserId || "system"}
+          <div className="text-sm flex justify-between">
+            <span>{item.type}</span>
+            <span className="text-gray-400 text-xs">
+              {item.targetUserId || "system"}
+            </span>
           </div>
         </NetworkItem>
       ))}
