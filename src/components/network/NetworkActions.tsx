@@ -1,14 +1,22 @@
 "use client";
 
 type Props = {
+  children?: React.ReactNode;
   onMessage?: () => void;
   onFollow?: () => void;
 };
 
 export default function NetworkActions({
+  children,
   onMessage,
   onFollow,
 }: Props) {
+  // modo wrapper (como ya lo usas en NetworkItem)
+  if (children) {
+    return <div className="flex gap-2">{children}</div>;
+  }
+
+  // modo acciones controladas
   return (
     <div className="flex gap-2">
       {onMessage && (
