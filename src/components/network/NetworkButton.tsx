@@ -1,12 +1,25 @@
 "use client";
 
+type Props = {
+  children: React.ReactNode;
+  onClick?: () => void;
+  variant?: "default" | "primary";
+};
+
 export default function NetworkButton({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  onClick,
+  variant = "default",
+}: Props) {
+  const base = "px-3 py-1 text-xs rounded-lg transition";
+
+  const styles =
+    variant === "primary"
+      ? "bg-black text-white"
+      : "border text-black";
+
   return (
-    <button className="border rounded-lg px-3 py-1 text-sm hover:bg-muted">
+    <button onClick={onClick} className={`${base} ${styles}`}>
       {children}
     </button>
   );
