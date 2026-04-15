@@ -1,4 +1,5 @@
 import { trackActivity } from "@/lib/network/activity";
+import { getOrCreateThread, updateThreadLastMessage } from "@/lib/network/thread";
 
 export interface NetworkMessage {
   id: string;
@@ -13,17 +14,16 @@ let messages: NetworkMessage[] = [];
 
 const generateId = () => Math.random().toString(36).substring(2, 9);
 
-const getThreadId = (userA: string, userB: string) =>
-  [userA, userB].sort().join("_");
-
 export async function sendMessage(
   senderId: string,
   receiverId: string,
   content: string
 ): Promise<NetworkMessage> {
+  const thread = await getOrCreateThread(senderId, receiverId);
+
   const message: NetworkMessage = {
     id: generateId(),
-    threadId: getThreadId(senderId, receiverId),
+    threadId: thread.id,
     senderId,
     receiverId,
     content,
@@ -32,17 +32,15 @@ export async function sendMessage(
 
   messages.push(message);
 
+  await updateThreadLastMessage(thread.id, message);
   await trackActivity(senderId, "message", receiverId);
 
   return message;
 }
 
 export async function getThreadMessages(
-  userA: string,
-  userB: string
+  threadId: string
 ): Promise<NetworkMessage[]> {
-  const threadId = getThreadId(userA, userB);
-
   return messages
     .filter((m) => m.threadId === threadId)
     .sort(
