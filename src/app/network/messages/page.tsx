@@ -8,31 +8,31 @@ export default function MessagesPage() {
   const userId = "user_1";
 
   const [threads, setThreads] = useState<any[]>([]);
-  const [activeThread, setActiveThread] = useState<string | null>(null);
+  const [activeThread, setActiveThread] = useState<string>("");
 
   useEffect(() => {
     const load = async () => {
       const data = await getUserThreads(userId);
       setThreads(data);
 
-      if (data.length) {
+      if (data.length > 0) {
         setActiveThread(data[0].id);
       }
     };
 
     load();
-  }, [userId]);
+  }, []);
 
   return (
     <div className="flex gap-4">
       <div className="w-1/3 border rounded-xl p-2 flex flex-col gap-2">
-        {threads.map((t) => (
+        {threads.map((t: any) => (
           <button
             key={t.id}
             onClick={() => setActiveThread(t.id)}
             className="text-left text-sm border p-2 rounded-lg"
           >
-            {t.participants?.join(" / ") || t.id}
+            {t.id}
           </button>
         ))}
       </div>
