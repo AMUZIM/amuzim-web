@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import {
   sendConnectionRequest,
-  cancelConnection,
+  removeConnection,
   getConnectionStatus,
 } from "@/lib/network";
 
@@ -41,8 +41,8 @@ export default function NetworkConnectButton({
       if (status === "none") {
         await sendConnectionRequest(currentUserId, targetUserId);
         setStatus("pending");
-      } else if (status === "pending") {
-        await cancelConnection(currentUserId, targetUserId);
+      } else if (status === "pending" || status === "connected") {
+        await removeConnection(currentUserId, targetUserId);
         setStatus("none");
       }
     } finally {
