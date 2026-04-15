@@ -1,4 +1,5 @@
 export * from "./connect";
+export * from "./connections";
 export * from "./follow";
 export * from "./message";
 export * from "./profile";
