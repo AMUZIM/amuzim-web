@@ -1,7 +1,7 @@
 export type ConnectionStatus =
+  | "none"
   | "pending"
-  | "accepted"
-  | "rejected"
+  | "connected"
   | "blocked";
 
 export interface NetworkConnection {
@@ -14,4 +14,13 @@ export interface NetworkConnection {
 
   createdAt: string;
   updatedAt: string;
+}
+
+export interface NetworkFollow {
+  id: string;
+
+  followerId: string;
+  followingId: string;
+
+  createdAt: string;
 }
