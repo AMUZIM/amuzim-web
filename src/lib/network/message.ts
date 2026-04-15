@@ -1,3 +1,5 @@
+import { trackActivity } from "@/lib/network/activity";
+
 export interface NetworkMessage {
   id: string;
   senderId: string;
@@ -24,6 +26,8 @@ export async function sendMessage(
   };
 
   messages.push(message);
+
+  await trackActivity(senderId, "message", receiverId);
 
   return message;
 }
