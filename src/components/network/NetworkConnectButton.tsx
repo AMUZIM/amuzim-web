@@ -41,7 +41,7 @@ export default function NetworkConnectButton({
       if (status === "none") {
         await sendConnectionRequest(currentUserId, targetUserId);
         setStatus("pending");
-      } else if (status === "pending" || status === "connected") {
+      } else {
         await removeConnection(currentUserId, targetUserId);
         setStatus("none");
       }
