@@ -23,7 +23,8 @@ function generateId(): string {
   return Math.random().toString(36).substring(2, 10);
 }
 
-export function createActivity(
+// 🔹 Mantener compatibilidad existente
+export function trackActivity(
   fromUserId: string,
   toUserId: string,
   type: ActivityType,
@@ -40,11 +41,14 @@ export function createActivity(
 
   activities.push(activity);
 
-  // 🔗 Integración signals (mínima)
+  // 🔗 Integración signals
   createSignal(fromUserId, toUserId, type as SignalType);
 
   return activity;
 }
+
+// 🔹 Nueva API (alias interno)
+export const createActivity = trackActivity;
 
 export function getActivities(): Activity[] {
   return activities;
