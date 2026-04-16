@@ -1,32 +1,14 @@
 import { NetworkProfile } from "@/types/network";
-import { getUserSignals } from "@/lib/network/signals";
-import {
-  computeUserAffinity,
-  getTopAffinities,
-} from "@/lib/network/signalsRanking";
+import { getRecommendedProfiles } from "@/lib/network/recommendation";
 
 // 🔹 base mock
 const profiles: NetworkProfile[] = [];
 
-// 🔹 discover con afinidad real
+// 🔹 discover usando motor real
 export function getDiscoverProfiles(
   userId: string
 ): NetworkProfile[] {
-  const signals = getUserSignals(userId);
-
-  const affinities = computeUserAffinity(signals, userId);
-  const top = getTopAffinities(affinities, 50);
-
-  const affinityMap = new Map<string, number>();
-  top.forEach((a) => affinityMap.set(a.userId, a.affinity));
-
-  return profiles
-    .filter((p) => p.userId !== userId)
-    .sort((a, b) => {
-      const aScore = affinityMap.get(a.userId) || 0;
-      const bScore = affinityMap.get(b.userId) || 0;
-      return bScore - aScore;
-    });
+  return getRecommendedProfiles(userId, profiles, 50);
 }
 
 // 🔹 compat UI
