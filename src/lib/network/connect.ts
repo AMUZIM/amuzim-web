@@ -29,9 +29,7 @@ export async function sendConnectionRequest(
 
   connections.push(newConnection);
 
-  await trackActivity(requesterId, "connection_request", receiverId, {
-    direction: "outgoing",
-  });
+  await trackActivity(requesterId, "connection_request", receiverId);
 
   return newConnection;
 }
@@ -52,57 +50,39 @@ export async function acceptConnection(
   connection.status = "connected";
   connection.updatedAt = new Date().toISOString();
 
-  await trackActivity(receiverId, "connection_accepted", requesterId, {
-    direction: "incoming",
-  });
+  await trackActivity(receiverId, "connection_accepted", requesterId);
 
   return connection;
 }
 
-export async function rejectConnection(
-  requesterId: string,
-  receiverId: string
-): Promise<boolean> {
-  const index = connections.findIndex(
-    (c) =>
-      c.requesterId === requesterId &&
-      c.receiverId === receiverId &&
-      c.status === "pending"
-  );
-
-  if (index === -1) return false;
-
-  connections.splice(index, 1);
-
-  return true;
-}
-
-export async function removeConnection(
-  userA: string,
-  userB: string
-): Promise<boolean> {
-  const index = connections.findIndex(
-    (c) =>
-      (c.requesterId === userA && c.receiverId === userB) ||
-      (c.requesterId === userB && c.receiverId === userA)
-  );
-
-  if (index === -1) return false;
-
-  connections.splice(index, 1);
-
-  return true;
-}
-
 export async function getConnectionStatus(
-  userA: string,
-  userB: string
-): Promise<ConnectionStatus> {
+  currentUserId: string,
+  targetUserId: string
+): Promise<
+  | "none"
+  | "pending_sent"
+  | "pending_received"
+  | "connected"
+> {
   const connection = connections.find(
     (c) =>
-      (c.requesterId === userA && c.receiverId === userB) ||
-      (c.requesterId === userB && c.receiverId === userA)
+      (c.requesterId === currentUserId &&
+        c.receiverId === targetUserId) ||
+      (c.requesterId === targetUserId &&
+        c.receiverId === currentUserId)
   );
 
-  return connection?.status || "none";
+  if (!connection) return "none";
+
+  if (connection.status === "connected") return "connected";
+
+  if (connection.status === "pending") {
+    if (connection.requesterId === currentUserId) {
+      return "pending_sent";
+    } else {
+      return "pending_received";
+    }
+  }
+
+  return "none";
 }
