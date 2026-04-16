@@ -23,11 +23,9 @@ export function getDiscoverProfiles(
     });
 }
 
-// 🔹 compatibilidad con UI existente
-export function getDiscoveryProfiles(
-  userId: string
-): NetworkProfile[] {
-  return getDiscoverProfiles(userId);
+// 🔹 compatibilidad UI (sin args)
+export function getDiscoveryProfiles(): NetworkProfile[] {
+  return profiles;
 }
 
 export function searchDiscoverProfiles(
