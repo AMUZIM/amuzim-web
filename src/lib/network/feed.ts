@@ -9,9 +9,9 @@ export async function getNetworkFeed(
   // 🔹 actividades propias
   const own = getUserActivities(userId);
 
-  // 🔹 conexiones (firma real: 2 args → array + userId)
+  // 🔹 conexiones (firma real: userId, connections[])
   const allConnections: NetworkConnection[] =
-    await getUserConnections([], userId);
+    await getUserConnections(userId, []);
 
   // 🔹 filtrar conexiones del usuario
   const userConnections = allConnections.filter(
