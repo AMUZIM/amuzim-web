@@ -1,10 +1,10 @@
 import { NetworkProfile } from "@/types/network";
 import { getUserSignals, computeScore } from "@/lib/network/signals";
 
-// 🔹 base mock (temporal)
+// 🔹 base mock
 const profiles: NetworkProfile[] = [];
 
-// 🔹 discover base (ranking por signals)
+// 🔹 core
 export function getDiscoverProfiles(
   userId: string
 ): NetworkProfile[] {
@@ -23,7 +23,13 @@ export function getDiscoverProfiles(
     });
 }
 
-// 🔹 search seguro (sin asumir fields inexistentes)
+// 🔹 compatibilidad con UI existente
+export function getDiscoveryProfiles(
+  userId: string
+): NetworkProfile[] {
+  return getDiscoverProfiles(userId);
+}
+
 export function searchDiscoverProfiles(
   query: string
 ): NetworkProfile[] {
@@ -32,6 +38,13 @@ export function searchDiscoverProfiles(
   return profiles.filter((p) =>
     JSON.stringify(p).toLowerCase().includes(q)
   );
+}
+
+// 🔹 compatibilidad nombre UI
+export function searchProfiles(
+  query: string
+): NetworkProfile[] {
+  return searchDiscoverProfiles(query);
 }
 
 // 🔹 helper
