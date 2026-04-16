@@ -1,6 +1,7 @@
 import { getUserActivities } from "@/lib/network/activity";
 import { getUserConnections } from "@/lib/network/connections";
 import { NetworkActivity } from "@/lib/network/activity";
+import { NetworkConnection } from "@/types/network";
 
 export async function getNetworkFeed(
   userId: string
@@ -8,10 +9,15 @@ export async function getNetworkFeed(
   // 🔹 actividades propias
   const own = getUserActivities(userId);
 
-  // 🔹 conexiones (firma existente requiere 2 args)
-  const connections = getUserConnections(userId, userId);
+  // 🔹 obtener TODAS las conexiones (según firma existente)
+  const allConnections: NetworkConnection[] = getUserConnections();
 
-  const connectionIds = connections.map((c) =>
+  // 🔹 filtrar conexiones del usuario
+  const userConnections = allConnections.filter(
+    (c) => c.userId === userId || c.targetUserId === userId
+  );
+
+  const connectionIds = userConnections.map((c) =>
     c.userId === userId ? c.targetUserId : c.userId
   );
 
