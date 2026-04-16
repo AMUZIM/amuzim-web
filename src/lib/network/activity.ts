@@ -1,44 +1,57 @@
-export type ActivityType =
-  | "connection_request"
-  | "connection_accepted"
-  | "follow"
-  | "message";
+import { createSignal, SignalType } from "./signals";
 
-export interface NetworkActivity {
+export type ActivityType =
+  | "follow"
+  | "connect"
+  | "message"
+  | "reply"
+  | "like"
+  | "view";
+
+export interface Activity {
   id: string;
-  userId: string;
+  fromUserId: string;
+  toUserId: string;
   type: ActivityType;
-  targetUserId?: string;
   metadata?: Record<string, any>;
-  createdAt: string;
+  timestamp: number;
 }
 
-let activities: NetworkActivity[] = [];
+const activities: Activity[] = [];
 
-const generateId = () => Math.random().toString(36).substring(2, 9);
+function generateId(): string {
+  return Math.random().toString(36).substring(2, 10);
+}
 
-export async function trackActivity(
-  userId: string,
+export function createActivity(
+  fromUserId: string,
+  toUserId: string,
   type: ActivityType,
-  targetUserId?: string,
   metadata?: Record<string, any>
-): Promise<NetworkActivity> {
-  const activity: NetworkActivity = {
+): Activity {
+  const activity: Activity = {
     id: generateId(),
-    userId,
+    fromUserId,
+    toUserId,
     type,
-    targetUserId,
     metadata,
-    createdAt: new Date().toISOString(),
+    timestamp: Date.now(),
   };
 
   activities.push(activity);
 
+  // 🔗 Integración signals (mínima)
+  createSignal(fromUserId, toUserId, type as SignalType);
+
   return activity;
 }
 
-export async function getUserActivities(
-  userId: string
-): Promise<NetworkActivity[]> {
-  return activities.filter((a) => a.userId === userId);
+export function getActivities(): Activity[] {
+  return activities;
+}
+
+export function getUserActivities(userId: string): Activity[] {
+  return activities.filter(
+    (a) => a.fromUserId === userId || a.toUserId === userId
+  );
 }
