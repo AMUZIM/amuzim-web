@@ -1,22 +1,22 @@
 import { NetworkConnection } from "@/types/network";
 
-import { getConnectionStatus } from "./connect";
+// 🔹 Fuente única en memoria (temporal)
+let connections: NetworkConnection[] = [];
 
+// 🔹 CONTRATO ÚNICO
 export async function getUserConnections(
-  userId: string,
-  allConnections: NetworkConnection[]
+  userId: string
 ): Promise<NetworkConnection[]> {
-  return allConnections.filter(
-    (c) =>
-      (c.requesterId === userId || c.receiverId === userId) &&
-      c.status === "connected"
+  return connections.filter(
+    (c) => c.requesterId === userId || c.receiverId === userId
   );
 }
 
-export async function isConnected(
-  userA: string,
-  userB: string
-): Promise<boolean> {
-  const status = await getConnectionStatus(userA, userB);
-  return status === "connected";
+// 🔹 helpers existentes (no romper)
+export function addConnection(connection: NetworkConnection) {
+  connections.push(connection);
+}
+
+export function getAllConnections(): NetworkConnection[] {
+  return connections;
 }
