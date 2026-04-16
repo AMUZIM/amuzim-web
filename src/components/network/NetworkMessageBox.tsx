@@ -6,11 +6,13 @@ import { sendMessage } from "@/lib/network";
 type Props = {
   currentUserId: string;
   targetUserId: string;
+  onMessageSent?: () => void; // 🔹 nuevo hook
 };
 
 export default function NetworkMessageBox({
   currentUserId,
   targetUserId,
+  onMessageSent,
 }: Props) {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
@@ -23,6 +25,9 @@ export default function NetworkMessageBox({
     try {
       await sendMessage(currentUserId, targetUserId, content);
       setContent("");
+
+      // 🔹 trigger refresh inmediato
+      onMessageSent?.();
     } finally {
       setLoading(false);
     }
