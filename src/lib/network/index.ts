@@ -8,22 +8,16 @@ export * from "./collaboration";
 export * from "./connections";
 export * from "./signals";
 
-// ---- TEMP STUBS (no romper build) ----
+// ---- TEMP STUBS (alineados con types reales) ----
 
 import { Signal } from "./signals";
+import { NetworkProfile } from "@/types/network";
 
 export function getUserSignals(userId: string): Signal[] {
   return [];
 }
 
-// Discover stubs
-export type NetworkProfile = {
-  id: string;
-  name: string;
-  username: string;
-  avatar?: string;
-};
-
+// Discover stubs (usar tipo real)
 export function getDiscoveryProfiles(): NetworkProfile[] {
   return [];
 }
