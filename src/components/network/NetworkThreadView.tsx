@@ -13,7 +13,6 @@ type Message = {
   id: string;
   senderId: string;
   content: string;
-  createdAt?: string;
 };
 
 export type ThreadViewRef = {
@@ -105,15 +104,6 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
                 )}
 
                 <div>{m.content}</div>
-
-                {m.createdAt && (
-                  <div className="text-[10px] mt-1 opacity-40 text-right">
-                    {new Date(m.createdAt).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </div>
-                )}
               </div>
             </div>
           );
