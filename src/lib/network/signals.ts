@@ -1,58 +1,72 @@
 export type SignalType =
-  | "connection"
   | "follow"
+  | "connect"
   | "message"
-  | "activity";
+  | "reply"
+  | "like"
+  | "view";
 
-export interface NetworkSignal {
-  id: string;
-  userId: string;
+export interface Signal {
+  fromUserId: string;
+  toUserId: string;
   type: SignalType;
-  strength: number;
-  createdAt: string;
+  weight: number;
+  timestamp: number;
 }
 
-let signals: NetworkSignal[] = [];
+export interface UserScore {
+  userId: string;
+  score: number;
+}
 
-const generateId = () => Math.random().toString(36).substring(2, 9);
+const SIGNAL_WEIGHTS: Record<SignalType, number> = {
+  follow: 2,
+  connect: 5,
+  message: 4,
+  reply: 3,
+  like: 1,
+  view: 0.5,
+};
 
-export async function emitSignal(
-  userId: string,
-  type: SignalType,
-  strength: number = 1
-): Promise<NetworkSignal> {
-  const signal: NetworkSignal = {
-    id: generateId(),
-    userId,
+export function createSignal(
+  fromUserId: string,
+  toUserId: string,
+  type: SignalType
+): Signal {
+  return {
+    fromUserId,
+    toUserId,
     type,
-    strength,
-    createdAt: new Date().toISOString(),
+    weight: SIGNAL_WEIGHTS[type],
+    timestamp: Date.now(),
   };
-
-  signals.push(signal);
-
-  return signal;
 }
 
-export async function getUserSignals(
-  userId: string
-): Promise<NetworkSignal[]> {
-  return signals.filter((s) => s.userId === userId);
+export function computeScore(signals: Signal[]): UserScore[] {
+  const scores: Record<string, number> = {};
+
+  for (const signal of signals) {
+    if (!scores[signal.toUserId]) {
+      scores[signal.toUserId] = 0;
+    }
+
+    scores[signal.toUserId] += signal.weight;
+  }
+
+  return Object.entries(scores).map(([userId, score]) => ({
+    userId,
+    score,
+  }));
 }
 
-export async function getTrendingSignals(): Promise<SignalType[]> {
-  const count: Record<SignalType, number> = {
-    connection: 0,
-    follow: 0,
-    message: 0,
-    activity: 0,
-  };
-
-  signals.forEach((s) => {
-    count[s.type]++;
-  });
-
-  return Object.entries(count)
-    .sort((a, b) => b[1] - a[1])
-    .map(([type]) => type as SignalType);
+export function getScoreBetweenUsers(
+  signals: Signal[],
+  fromUserId: string,
+  toUserId: string
+): number {
+  return signals
+    .filter(
+      (s) => s.fromUserId === fromUserId && s.toUserId === toUserId
+    )
+    .reduce((acc, s) => acc + s.weight, 0);
 }
