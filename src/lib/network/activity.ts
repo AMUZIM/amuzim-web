@@ -19,6 +19,9 @@ export interface Activity {
   timestamp: number;
 }
 
+// 🔹 Compatibilidad naming antiguo
+export type NetworkActivity = Activity;
+
 const activities: Activity[] = [];
 
 function generateId(): string {
@@ -42,7 +45,6 @@ export async function trackActivity(
 
   activities.push(activity);
 
-  // 🔗 Integración signals (solo tipos soportados)
   if (
     type !== "connection_request" &&
     type !== "connection_accepted"
