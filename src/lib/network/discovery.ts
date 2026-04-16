@@ -1,29 +1,35 @@
 import { NetworkProfile } from "@/types/network";
-import { getUserSignals, computeScore } from "@/lib/network/signals";
+import { getUserSignals } from "@/lib/network/signals";
+import {
+  computeUserAffinity,
+  getTopAffinities,
+} from "@/lib/network/signalsRanking";
 
 // 🔹 base mock
 const profiles: NetworkProfile[] = [];
 
-// 🔹 core
+// 🔹 discover con afinidad real
 export function getDiscoverProfiles(
   userId: string
 ): NetworkProfile[] {
   const signals = getUserSignals(userId);
-  const scores = computeScore(signals);
 
-  const scoreMap = new Map<string, number>();
-  scores.forEach((s) => scoreMap.set(s.userId, s.score));
+  const affinities = computeUserAffinity(signals, userId);
+  const top = getTopAffinities(affinities, 50);
+
+  const affinityMap = new Map<string, number>();
+  top.forEach((a) => affinityMap.set(a.userId, a.affinity));
 
   return profiles
     .filter((p) => p.userId !== userId)
     .sort((a, b) => {
-      const scoreA = scoreMap.get(a.userId) || 0;
-      const scoreB = scoreMap.get(b.userId) || 0;
-      return scoreB - scoreA;
+      const aScore = affinityMap.get(a.userId) || 0;
+      const bScore = affinityMap.get(b.userId) || 0;
+      return bScore - aScore;
     });
 }
 
-// 🔹 compatibilidad UI (sin args)
+// 🔹 compat UI
 export function getDiscoveryProfiles(): NetworkProfile[] {
   return profiles;
 }
@@ -38,14 +44,12 @@ export function searchDiscoverProfiles(
   );
 }
 
-// 🔹 compatibilidad nombre UI
 export function searchProfiles(
   query: string
 ): NetworkProfile[] {
   return searchDiscoverProfiles(query);
 }
 
-// 🔹 helper
 export function setDiscoverProfiles(data: NetworkProfile[]) {
   profiles.length = 0;
   profiles.push(...data);
