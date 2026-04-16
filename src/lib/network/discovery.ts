@@ -1,7 +1,7 @@
 import { NetworkProfile } from "@/types/network";
 import { getUserSignals, computeScore } from "@/lib/network/signals";
 
-// 🔹 base mock (temporal hasta DB real)
+// 🔹 base mock (temporal)
 const profiles: NetworkProfile[] = [];
 
 // 🔹 discover base (ranking por signals)
@@ -23,18 +23,18 @@ export function getDiscoverProfiles(
     });
 }
 
-// 🔹 search simple
+// 🔹 search seguro (sin asumir fields inexistentes)
 export function searchDiscoverProfiles(
   query: string
 ): NetworkProfile[] {
-  return profiles.filter(
-    (p) =>
-      p.name.toLowerCase().includes(query.toLowerCase()) ||
-      p.username.toLowerCase().includes(query.toLowerCase())
+  const q = query.toLowerCase();
+
+  return profiles.filter((p) =>
+    JSON.stringify(p).toLowerCase().includes(q)
   );
 }
 
-// 🔹 helper para futuro (no romper)
+// 🔹 helper
 export function setDiscoverProfiles(data: NetworkProfile[]) {
   profiles.length = 0;
   profiles.push(...data);
