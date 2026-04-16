@@ -1,4 +1,4 @@
-import { NetworkConnection, ConnectionStatus } from "@/types/network";
+import { NetworkConnection } from "@/types/network";
 import { trackActivity } from "@/lib/network/activity";
 
 let connections: NetworkConnection[] = [];
@@ -53,6 +53,22 @@ export async function acceptConnection(
   await trackActivity(receiverId, "connection_accepted", requesterId);
 
   return connection;
+}
+
+export async function removeConnection(
+  userA: string,
+  userB: string
+): Promise<boolean> {
+  const index = connections.findIndex(
+    (c) =>
+      (c.requesterId === userA && c.receiverId === userB) ||
+      (c.requesterId === userB && c.receiverId === userA)
+  );
+
+  if (index === -1) return false;
+
+  connections.splice(index, 1);
+  return true;
 }
 
 export async function getConnectionStatus(
