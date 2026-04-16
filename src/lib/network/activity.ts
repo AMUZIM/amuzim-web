@@ -7,7 +7,8 @@ export type ActivityType =
   | "reply"
   | "like"
   | "view"
-  | "connection_request";
+  | "connection_request"
+  | "connection_accepted";
 
 export interface Activity {
   id: string;
@@ -24,7 +25,6 @@ function generateId(): string {
   return Math.random().toString(36).substring(2, 10);
 }
 
-// 🔹 Firma compatible con uso actual
 export async function trackActivity(
   fromUserId: string,
   type: ActivityType,
@@ -42,15 +42,17 @@ export async function trackActivity(
 
   activities.push(activity);
 
-  // 🔗 Integración signals (solo si existe mapping)
-  if (type !== "connection_request") {
+  // 🔗 Integración signals (solo tipos soportados)
+  if (
+    type !== "connection_request" &&
+    type !== "connection_accepted"
+  ) {
     createSignal(fromUserId, toUserId, type as SignalType);
   }
 
   return activity;
 }
 
-// alias
 export const createActivity = trackActivity;
 
 export function getActivities(): Activity[] {
