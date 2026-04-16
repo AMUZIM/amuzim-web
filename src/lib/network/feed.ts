@@ -1,17 +1,34 @@
 import { getUserActivities } from "@/lib/network/activity";
+import { getUserConnections } from "@/lib/network/connections";
 import { NetworkActivity } from "@/lib/network/activity";
 
 export async function getNetworkFeed(
   userId: string
 ): Promise<NetworkActivity[]> {
-  const own = await getUserActivities(userId);
+  // 🔹 actividades propias
+  const own = getUserActivities(userId);
 
-  // v2: simple enriched feed (future: connections)
-  const feed = [...own];
+  // 🔹 conexiones
+  const connections = getUserConnections(userId);
 
-  return feed.sort(
-    (a, b) =>
-      new Date(b.createdAt).getTime() -
-      new Date(a.createdAt).getTime()
+  const connectionIds = connections.map((c) =>
+    c.userId === userId ? c.targetUserId : c.userId
+  );
+
+  // 🔹 actividades de conexiones
+  const fromConnections = connectionIds.flatMap((id) =>
+    getUserActivities(id)
+  );
+
+  // 🔹 merge + dedupe
+  const map = new Map<string, NetworkActivity>();
+
+  [...own, ...fromConnections].forEach((a) => {
+    map.set(a.id, a);
+  });
+
+  // 🔹 ordenar por timestamp desc
+  return Array.from(map.values()).sort(
+    (a, b) => b.timestamp - a.timestamp
   );
 }
