@@ -7,40 +7,36 @@ import { NetworkConnection } from "@/types/network";
 export async function getNetworkFeed(
   userId: string
 ): Promise<NetworkActivity[]> {
-  // 🔹 actividades propias
   const own = getUserActivities(userId);
 
-  // 🔹 conexiones
-  const allConnections: NetworkConnection[] =
+  const connections: NetworkConnection[] =
     await getUserConnections(userId);
 
-  const connectionIds = allConnections.map((c) =>
+  const connectionIds = connections.map((c) =>
     c.requesterId === userId ? c.receiverId : c.requesterId
   );
 
-  // 🔹 actividades de conexiones
   const fromConnections = connectionIds.flatMap((id) =>
     getUserActivities(id)
   );
 
   const allActivities = [...own, ...fromConnections];
 
-  // 🔹 signals del usuario (para ranking)
+  // 🔹 ranking limpio
   const signals = getUserSignals(userId);
   const scores = computeScore(signals);
 
   const scoreMap = new Map<string, number>();
   scores.forEach((s) => scoreMap.set(s.userId, s.score));
 
-  // 🔹 ranking híbrido (score + recency)
-  return allActivities
-    .sort((a, b) => {
-      const scoreA = scoreMap.get(a.toUserId) || 0;
-      const scoreB = scoreMap.get(b.toUserId) || 0;
+  return allActivities.sort((a, b) => {
+    const scoreA = scoreMap.get(a.toUserId) || 0;
+    const scoreB = scoreMap.get(b.toUserId) || 0;
 
-      const combinedA = scoreA + a.timestamp;
-      const combinedB = scoreB + b.timestamp;
+    // peso 70% signals + 30% recency
+    const rankA = scoreA * 0.7 + a.timestamp * 0.3;
+    const rankB = scoreB * 0.7 + b.timestamp * 0.3;
 
-      return combinedB - combinedA;
-    });
+    return rankB - rankA;
+  });
 }
