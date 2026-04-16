@@ -8,8 +8,8 @@ export async function getNetworkFeed(
   // 🔹 actividades propias
   const own = getUserActivities(userId);
 
-  // 🔹 conexiones
-  const connections = getUserConnections(userId);
+  // 🔹 conexiones (firma existente requiere 2 args)
+  const connections = getUserConnections(userId, userId);
 
   const connectionIds = connections.map((c) =>
     c.userId === userId ? c.targetUserId : c.userId
@@ -27,7 +27,7 @@ export async function getNetworkFeed(
     map.set(a.id, a);
   });
 
-  // 🔹 ordenar por timestamp desc
+  // 🔹 ordenar
   return Array.from(map.values()).sort(
     (a, b) => b.timestamp - a.timestamp
   );
