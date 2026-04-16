@@ -29,6 +29,9 @@ const SIGNAL_WEIGHTS: Record<SignalType, number> = {
   view: 0.5,
 };
 
+// 🔹 almacenamiento en memoria (base real del sistema)
+const signals: Signal[] = [];
+
 function generateId(): string {
   return Math.random().toString(36).substring(2, 10);
 }
@@ -38,7 +41,7 @@ export function createSignal(
   toUserId: string,
   type: SignalType
 ): Signal {
-  return {
+  const signal: Signal = {
     id: generateId(),
     fromUserId,
     toUserId,
@@ -46,6 +49,17 @@ export function createSignal(
     strength: SIGNAL_WEIGHTS[type],
     timestamp: Date.now(),
   };
+
+  signals.push(signal);
+
+  return signal;
+}
+
+// 🔹 NUEVO → usado por UI
+export function getUserSignals(userId: string): Signal[] {
+  return signals.filter(
+    (s) => s.fromUserId === userId || s.toUserId === userId
+  );
 }
 
 export function computeScore(signals: Signal[]): UserScore[] {
