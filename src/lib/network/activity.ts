@@ -17,6 +17,8 @@ export interface Activity {
   type: ActivityType;
   metadata?: Record<string, any>;
   timestamp: number;
+  createdAt: string;
+  updatedAt: string;
 }
 
 // 🔹 Compatibilidad naming antiguo
@@ -28,12 +30,18 @@ function generateId(): string {
   return Math.random().toString(36).substring(2, 10);
 }
 
+function nowISO(): string {
+  return new Date().toISOString();
+}
+
 export async function trackActivity(
   fromUserId: string,
   type: ActivityType,
   toUserId: string,
   metadata?: Record<string, any>
 ): Promise<Activity> {
+  const now = nowISO();
+
   const activity: Activity = {
     id: generateId(),
     fromUserId,
@@ -41,6 +49,8 @@ export async function trackActivity(
     type,
     metadata,
     timestamp: Date.now(),
+    createdAt: now,
+    updatedAt: now,
   };
 
   activities.push(activity);
