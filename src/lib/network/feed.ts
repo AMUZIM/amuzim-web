@@ -9,17 +9,12 @@ export async function getNetworkFeed(
   // 🔹 actividades propias
   const own = getUserActivities(userId);
 
-  // 🔹 conexiones (firma real: userId, connections[])
+  // 🔹 conexiones (contrato limpio: solo userId)
   const allConnections: NetworkConnection[] =
-    await getUserConnections(userId, []);
+    await getUserConnections(userId);
 
-  // 🔹 filtrar conexiones del usuario
-  const userConnections = allConnections.filter(
-    (c) => c.userId === userId || c.targetUserId === userId
-  );
-
-  const connectionIds = userConnections.map((c) =>
-    c.userId === userId ? c.targetUserId : c.userId
+  const connectionIds = allConnections.map((c) =>
+    c.requesterId === userId ? c.receiverId : c.requesterId
   );
 
   // 🔹 actividades de conexiones
