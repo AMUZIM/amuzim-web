@@ -6,7 +6,8 @@ export type ActivityType =
   | "message"
   | "reply"
   | "like"
-  | "view";
+  | "view"
+  | "connection_request";
 
 export interface Activity {
   id: string;
@@ -23,13 +24,13 @@ function generateId(): string {
   return Math.random().toString(36).substring(2, 10);
 }
 
-// 🔹 Mantener compatibilidad existente
-export function trackActivity(
+// 🔹 Firma compatible con uso actual
+export async function trackActivity(
   fromUserId: string,
-  toUserId: string,
   type: ActivityType,
+  toUserId: string,
   metadata?: Record<string, any>
-): Activity {
+): Promise<Activity> {
   const activity: Activity = {
     id: generateId(),
     fromUserId,
@@ -41,13 +42,15 @@ export function trackActivity(
 
   activities.push(activity);
 
-  // 🔗 Integración signals
-  createSignal(fromUserId, toUserId, type as SignalType);
+  // 🔗 Integración signals (solo si existe mapping)
+  if (type !== "connection_request") {
+    createSignal(fromUserId, toUserId, type as SignalType);
+  }
 
   return activity;
 }
 
-// 🔹 Nueva API (alias interno)
+// alias
 export const createActivity = trackActivity;
 
 export function getActivities(): Activity[] {
