@@ -4,10 +4,15 @@ import { useEffect, useState } from "react";
 import {
   sendConnectionRequest,
   acceptConnection,
+  removeConnection,
   getConnectionStatus,
 } from "@/lib/network";
 
-type Status = "none" | "pending" | "connected";
+type Status =
+  | "none"
+  | "pending_sent"
+  | "pending_received"
+  | "connected";
 
 type Props = {
   currentUserId: string;
@@ -40,30 +45,33 @@ export default function NetworkConnectButton({
     try {
       if (status === "none") {
         await sendConnectionRequest(currentUserId, targetUserId);
-        setStatus("pending");
-      } else if (status === "pending") {
+        setStatus("pending_sent");
+      } else if (status === "pending_received") {
         await acceptConnection(targetUserId, currentUserId);
         setStatus("connected");
+      } else {
+        await removeConnection(currentUserId, targetUserId);
+        setStatus("none");
       }
     } finally {
       setLoading(false);
     }
   };
 
-  const label =
-    status === "none"
-      ? "Connect"
-      : status === "pending"
-      ? "Accept"
-      : "Connected";
+  const getLabel = () => {
+    if (status === "none") return "Connect";
+    if (status === "pending_sent") return "Pending";
+    if (status === "pending_received") return "Accept";
+    return "Connected";
+  };
 
   return (
     <button
       onClick={handleClick}
-      disabled={loading || status === "connected"}
+      disabled={loading || status === "pending_sent"}
       className="px-4 py-2 rounded-xl text-sm border"
     >
-      {loading ? "..." : label}
+      {loading ? "..." : getLabel()}
     </button>
   );
 }
