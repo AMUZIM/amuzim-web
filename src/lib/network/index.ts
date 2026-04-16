@@ -9,3 +9,6 @@ export * from "./signals";
 export * from "./discovery";
 export * from "./feed";
 export * from "./collaboration";
+
+// 🔥 asegurar export de removeConnection
+export { removeConnection } from "./connect";
