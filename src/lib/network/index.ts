@@ -7,4 +7,8 @@ export * from "./feed";
 export * from "./collaboration";
 export * from "./connections";
 export * from "./signals";
+export * from "./ranking";
+export * from "./signalsRanking";
 export * from "./discovery";
+export * from "./recommendation";
+export * from "./insights";
