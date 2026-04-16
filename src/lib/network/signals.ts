@@ -7,10 +7,11 @@ export type SignalType =
   | "view";
 
 export interface Signal {
+  id: string;
   fromUserId: string;
   toUserId: string;
   type: SignalType;
-  weight: number;
+  strength: number;
   timestamp: number;
 }
 
@@ -28,16 +29,21 @@ const SIGNAL_WEIGHTS: Record<SignalType, number> = {
   view: 0.5,
 };
 
+function generateId(): string {
+  return Math.random().toString(36).substring(2, 10);
+}
+
 export function createSignal(
   fromUserId: string,
   toUserId: string,
   type: SignalType
 ): Signal {
   return {
+    id: generateId(),
     fromUserId,
     toUserId,
     type,
-    weight: SIGNAL_WEIGHTS[type],
+    strength: SIGNAL_WEIGHTS[type],
     timestamp: Date.now(),
   };
 }
@@ -50,7 +56,7 @@ export function computeScore(signals: Signal[]): UserScore[] {
       scores[signal.toUserId] = 0;
     }
 
-    scores[signal.toUserId] += signal.weight;
+    scores[signal.toUserId] += signal.strength;
   }
 
   return Object.entries(scores).map(([userId, score]) => ({
@@ -68,5 +74,5 @@ export function getScoreBetweenUsers(
     .filter(
       (s) => s.fromUserId === fromUserId && s.toUserId === toUserId
     )
-    .reduce((acc, s) => acc + s.weight, 0);
+    .reduce((acc, s) => acc + s.strength, 0);
 }
