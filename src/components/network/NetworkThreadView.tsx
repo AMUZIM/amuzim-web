@@ -64,7 +64,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
 
     if (!messages.length) {
       return (
-        <div className="text-sm text-gray-400">
+        <div className="text-sm text-gray-400" px-2>
           No messages yet
         </div>
       );
