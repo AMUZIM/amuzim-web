@@ -51,7 +51,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
     }, [threadId]);
 
     useEffect(() => {
-      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+      bottomRef.current?.scrollIntoView({ behavior: "auto" });
     }, [messages]);
 
     if (loading) {
