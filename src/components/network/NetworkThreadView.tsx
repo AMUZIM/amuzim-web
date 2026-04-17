@@ -76,12 +76,12 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
           const isMe = m.senderId === currentUserId;
 
           return (
-            <div
-              key={m.id}
-              className={`flex ${
-                isMe ? "justify-end" : "justify-start"
-              }`}
-            >
+          <div
+           key={m.id}
+           className={`flex w-full ${
+             isMe ? "justify-end" : "justify-start"
+           }`}
+          >
               <div
                 className={`text-sm px-3 py-2 rounded-lg max-w-[70%] ${
                   isMe
