@@ -100,7 +100,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
           );
         })}
 
-        <div ref={bottomRef} />
+        <div ref={bottomRef} className="h-2" />
       </div>
     );
   }
