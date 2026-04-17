@@ -49,6 +49,13 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
       setLoading(true);
       loadMessages();
     }, [threadId]);
+    useEffect(() => {
+  const interval = setInterval(() => {
+    loadMessages();
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, [threadId]);
 
     useEffect(() => {
       bottomRef.current?.scrollIntoView({ behavior: "auto" });
