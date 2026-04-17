@@ -94,7 +94,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
                     {m.senderId}
                   </div>
                 )}
-                <div>{m.content}</div>
+                <div className="whitespace-pre-wrap">{m.content}</div>
               </div>
             </div>
           );
