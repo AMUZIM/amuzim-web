@@ -86,7 +86,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
                 className={`text-sm px-4 py-2 rounded-2xlg max-w-[70%] ${
                   isMe
                     ? "bg-black text-white"
-                    : "bg-gray-100 text-black"
+                    : "bg-gray-200 text-black"
                 }`}
               >
                 {!isMe && (
