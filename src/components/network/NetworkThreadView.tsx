@@ -78,7 +78,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
           return (
           <div
            key={m.id}
-           className={`flex w-full px-1 ${
+           className={`flex w-full px-2 ${
              isMe ? "justify-end" : "justify-start"
            }`}
           >
