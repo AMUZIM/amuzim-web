@@ -71,7 +71,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
     }
 
     return (
-      <div className="flex flex-col gap-4 max-h-[400px] overflow-y-auto px-3 bg-neutral-50 pt-2 pb-2 rounded-xl border border-neutral-200">
+      <div className="flex flex-col gap-4 max-h-[400px] overflow-y-auto px-3 bg-neutral-50 pt-2 pb-2 rounded-xl border border-neutral-200 shadow-sm">
         {messages.map((m) => {
           const isMe = m.senderId === currentUserId;
 
