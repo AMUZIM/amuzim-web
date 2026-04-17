@@ -90,7 +90,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
                 }`}
               >
                 {!isMe && (
-                  <div className="text-xs text-gray-400 mb-1">
+                  <div className="text-[10px] text-gray-400 mb-1 opacity-70">
                     {m.senderId}
                   </div>
                 )}
