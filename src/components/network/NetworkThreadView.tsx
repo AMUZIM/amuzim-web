@@ -83,7 +83,7 @@ const NetworkThreadView = forwardRef<ThreadViewRef, Props>(
            }`}
           >
               <div
-                className={`text-sm px-4 py-2 rounded-2xlg max-w-[70%] ${
+                className={`text-sm px-4 py-2 rounded-2xl max-w-[65%] ${
                   isMe
                     ? "bg-black text-white"
                     : "bg-gray-200 text-black"
