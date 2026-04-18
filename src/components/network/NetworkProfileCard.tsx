@@ -32,7 +32,9 @@ export default function NetworkProfileCard({
        }}
      >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gray-200" />
+          <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-xs font-medium text-gray-600">
+            {profile.username?.charAt(0).toUpperCase()}
+           </div>
           <div>
             <div className="text-sm font-medium">
               {profile.username}
