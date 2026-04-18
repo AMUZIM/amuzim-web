@@ -18,9 +18,9 @@ export default function NetworkProfilePreview({ profile }: Props) {
         </div>
 
         {profile.bio && (
-          <div className="text-xs text-gray-500 leading-tight line-clamp-2">
-            {profile.bio}
-          </div>
+           <div className="text-xs text-gray-500 leading-tight line-clamp-2 break-words">
+             {profile.bio}
+           </div>
         )}
 
         {profile.location && (
