@@ -1,9 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import NetworkThreadView, {
-  ThreadViewRef,
-} from "./NetworkThreadView";
+import NetworkThreadView, { ThreadViewRef } from "./NetworkThreadView";
 import NetworkMessageBox from "./NetworkMessageBox";
 
 type Props = {
@@ -19,12 +17,8 @@ export default function NetworkMessageContainer({
 }: Props) {
   const threadRef = useRef<ThreadViewRef>(null);
 
-  const handleMessageSent = () => {
-    threadRef.current?.refresh();
-  };
-
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       <NetworkThreadView
         ref={threadRef}
         threadId={threadId}
@@ -34,7 +28,9 @@ export default function NetworkMessageContainer({
       <NetworkMessageBox
         currentUserId={currentUserId}
         targetUserId={targetUserId}
-        onMessageSent={handleMessageSent}
+        onMessageSent={() => {
+          threadRef.current?.refresh();
+        }}
       />
     </div>
   );
