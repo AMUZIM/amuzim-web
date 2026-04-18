@@ -9,7 +9,7 @@ type Props = {
 export default function NetworkProfilePreview({ profile }: Props) {
   return (
     <div className="p-4 border border-gray-200 rounded-xl w-64 bg-white shadow-sm hover:shadow-md transition-shadow duration-200 backdrop-blur-sm ring-1 ring-gray-100 hover:ring-gray-200">
-      <div className="flex flex-col items-center text-center gap-2 w-full px-1 py-1 select-none gap-2.5">
+      <div className="flex flex-col items-center text-center gap-2.5 w-full px-1 py-1 select-none">
         <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-600 shadow-sm ring-1 ring-gray-200 transition-transform duration-200 hover:scale-105 hover:shadow-md">
           {profile.username?.charAt(0).toUpperCase()}
         </div>
