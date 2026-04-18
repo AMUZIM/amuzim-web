@@ -50,16 +50,14 @@ export default function DiscoverPage() {
         className="px-4 py-2 border rounded-xl text-sm"
       />
 
-      {loading ? (
-        <NetworkState type="loading" />
-      ) : profiles.length === 0 ? (
-        <NetworkState type="empty" message="No creators found" />
-      ) : (
-        <NetworkProfileList
-          profiles={profiles}
-          currentUserId={currentUserId}
-        />
-      )}
+     {loading ? (
+       <NetworkState type="loading" />
+     ) : (
+       <NetworkProfileList
+        profiles={profiles}
+        currentUserId={currentUserId}
+       />
+     )}
     </div>
   );
 }
