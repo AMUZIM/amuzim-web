@@ -35,9 +35,9 @@ export default function NetworkProfileCard({
             {profile.username?.charAt(0).toUpperCase()}
            </div>
           <div>
-             <div className="text-sm font-semibold text-gray-900 leading-tight">
-              {profile.username}
-             </div>
+              <div className="text-sm font-semibold text-gray-900 leading-tight truncate">
+               {profile.username}
+              </div>
             {profile.bio && (
               <div className="text-xs text-gray-500 leading-tight line-clamp-1">
                 {profile.bio}
