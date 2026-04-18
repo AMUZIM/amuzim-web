@@ -58,7 +58,7 @@ export default function NetworkProfileCard({
         </div>
 
         {hovered && (
-          <div className="absolute top-full mt-2 left-0 z-10">
+          <div className="absolute top-full mt-2 left-0 z-10 w-[260px]">
             <NetworkProfilePreview profile={profile} />
           </div>
         )}
