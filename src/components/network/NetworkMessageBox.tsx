@@ -49,7 +49,7 @@ export default function NetworkMessageBox({
 
       <button
         onClick={handleSend}
-        disabled={loading}
+        disabled={loading || !content.trim()}
         className="px-3 py-2 text-sm border rounded-lg"
       >
         {loading ? "..." : "Send"}
