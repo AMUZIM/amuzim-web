@@ -46,7 +46,7 @@ export default function NetworkProfileCard({
           </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 shrink-0">
           <NetworkConnectButton
             currentUserId={currentUserId}
             targetUserId={profile.userId}
