@@ -34,7 +34,7 @@ export default function NetworkMessageBox({
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex items-center gap-2 px-3 py-2 border-t border-neutral-200 bg-white">
       <input
         value={content}
         onChange={(e) => setContent(e.target.value)}
