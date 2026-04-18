@@ -34,7 +34,7 @@ export default function NetworkProfileCard({
           <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-xs font-medium text-gray-600 shrink-0">
             {profile.username?.charAt(0).toUpperCase()}
            </div>
-          <div>
+          <div className="min-w-0">
               <div className="text-sm font-semibold text-gray-900 leading-tight truncate">
                {profile.username}
               </div>
