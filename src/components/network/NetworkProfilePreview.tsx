@@ -24,7 +24,7 @@ export default function NetworkProfilePreview({ profile }: Props) {
         )}
 
         {profile.location && (
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-gray-400 leading-tight">
             {profile.location}
           </div>
         )}
