@@ -8,21 +8,30 @@ type Props = {
   currentUserId: string;
 };
 
+const mockProfiles: NetworkProfile[] = [
+  {
+    id: "1",
+    userId: "1",
+    username: "john_doe",
+    bio: "Music producer",
+  },
+  {
+    id: "2",
+    userId: "2",
+    username: "sarah_music",
+    bio: "Singer & songwriter",
+  },
+];
+
 export default function NetworkProfileList({
   profiles,
   currentUserId,
 }: Props) {
-  if (!profiles.length) {
-    return (
-      <div className="text-sm text-gray-500">
-        No profiles found
-      </div>
-    );
-  }
+  const list = profiles.length ? profiles : mockProfiles;
 
   return (
     <div className="flex flex-col gap-3">
-      {profiles.map((profile) => (
+      {list.map((profile) => (
         <NetworkProfileCard
           key={profile.id}
           profile={profile}
