@@ -10,8 +10,9 @@ export default function NetworkProfilePreview({ profile }: Props) {
   return (
     <div className="p-4 border rounded-xl w-64 bg-white shadow">
       <div className="flex flex-col items-center text-center gap-2">
-        <div className="w-16 h-16 rounded-full bg-gray-200" />
-
+        <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-600">
+          {profile.username?.charAt(0).toUpperCase()}
+        </div>
         <div className="text-sm font-semibold">
           {profile.username}
         </div>
