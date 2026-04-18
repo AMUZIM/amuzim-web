@@ -50,7 +50,7 @@ export default function NetworkMessageBox({
       <button
         onClick={handleSend}
         disabled={loading || !content.trim()}
-        className="flex-1 px-3 py-2 text-sm outline-none"
+        className="px-4 py-2 text-sm rounded-lg bg-neutral-900 text-white disabled:opacity-50"
       >
         {loading ? "..." : "Send"}
       </button>
