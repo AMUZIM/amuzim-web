@@ -9,17 +9,21 @@ type Props = {
 };
 
 const mockProfiles: NetworkProfile[] = [
-  {
-    id: "1",
-    userId: "1",
-    username: "john_doe",
-    bio: "Music producer",
-  },
+ {  
+   id: "1",
+   userId: "1",
+   username: "john_doe",
+   bio: "Music producer",
+   createdAt: new Date().toISOString(),
+   updatedAt: new Date().toISOString(),
+ },
   {
     id: "2",
     userId: "2",
     username: "sarah_music",
     bio: "Singer & songwriter",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   },
 ];
 
