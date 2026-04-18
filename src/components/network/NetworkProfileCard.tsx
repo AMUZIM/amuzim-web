@@ -21,12 +21,16 @@ export default function NetworkProfileCard({
 
   return (
     <>
-      <div
-        className="relative p-4 border rounded-xl flex items-center justify-between"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onClick={() => setOpen(true)}
-      >
+     <div
+       className="relative p-4 border rounded-xl flex items-center justify-between cursor-pointer"
+       onMouseEnter={() => setHovered(true)}
+       onMouseLeave={() => setHovered(false)}
+       onClick={(e) => {
+         const target = e.target as HTMLElement;
+         if (target.closest("button")) return;
+         setOpen(true);
+       }}
+     >
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-gray-200" />
           <div>
