@@ -44,6 +44,8 @@ export default function NetworkMessageBox({
             handleSend();
           }
        }}
+       disabled={loading}
+      />
 
       <button
         onClick={handleSend}
