@@ -39,9 +39,9 @@ export default function NetworkProfileCard({
                {profile.username}
               </div>
             {profile.bio && (
-              <div className="text-xs text-gray-500 leading-tight line-clamp-1">
+              <div className="text-xs text-gray-500 leading-tight line-clamp-1 break-words">
                 {profile.bio}
-              </div>
+                  </div>
             )}
           </div>
         </div>
