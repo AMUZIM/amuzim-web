@@ -22,7 +22,7 @@ export default function NetworkProfileCard({
   return (
     <>
      <div
-       className="relative p-4 border rounded-xl flex items-center justify-between cursor-pointer"
+       <div className="relative p-4 border rounded-xl flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors"
        onMouseEnter={() => setHovered(true)}
        onMouseLeave={() => setHovered(false)}
        onClick={(e) => {
