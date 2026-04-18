@@ -38,9 +38,12 @@ export default function NetworkMessageBox({
       <input
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Write a message..."
-        className="flex-1 px-3 py-2 border rounded-lg text-sm"
-      />
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleSend();
+          }
+       }}
 
       <button
         onClick={handleSend}
