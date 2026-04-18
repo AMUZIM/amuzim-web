@@ -13,7 +13,7 @@ export default function NetworkProfilePreview({ profile }: Props) {
         <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-600 shadow-sm ring-1 ring-gray-200 transition-transform duration-200 hover:scale-105 hover:shadow-md">
           {profile.username?.charAt(0).toUpperCase()}
         </div>
-        <div className="text-sm font-semibold text-gray-900 leading-tight tracking-tight">
+        <div className="text-sm font-semibold text-gray-900 leading-tight tracking-tight truncate">
           {profile.username}
         </div>
 
