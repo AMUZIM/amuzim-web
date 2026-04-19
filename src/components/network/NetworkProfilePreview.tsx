@@ -17,8 +17,8 @@ export default function NetworkProfilePreview({ profile }: Props) {
         </div>
 
         {profile.bio && (
-           <div className="text-xs text-gray-500 leading-tight line-clamp-2 break-words tracking-tight px-1">
-             {profile.bio}
+           <div className="text-xs text-gray-500 leading-tight line-clamp-2 break-words tracking-tight px-1 select-text">
+            {profile.bio}
            </div>
         )}
 
