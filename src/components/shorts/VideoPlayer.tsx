@@ -29,7 +29,7 @@ export default function VideoPlayer({ src, isActive }: Props) {
       loop
       muted
       playsInline
-      preload="metadata"
+      preload="auto"
     />
   );
 }
