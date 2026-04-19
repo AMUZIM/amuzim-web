@@ -51,5 +51,6 @@ export default function NetworkProfileList({
             />
           </div>
         ))}
-  </div>
+    </div>
 );
+}
