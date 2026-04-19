@@ -27,7 +27,7 @@ export default function NetworkState({ type, message }: Props) {
           No results found
         </h3>
         <p className="text-sm text-neutral-500 mt-2">
-          Try a different search or check spelling
+          Try a different name or keyword
         </p>
       </div>
     );
@@ -37,10 +37,10 @@ export default function NetworkState({ type, message }: Props) {
     return (
       <div className="w-full flex flex-col items-center justify-center py-16 text-center">
         <h3 className="text-lg font-semibold text-neutral-900">
-          No profiles yet
+          No creators yet
         </h3>
         <p className="text-sm text-neutral-500 mt-2">
-          Check back later or explore other sections
+          Start discovering and connect with people
         </p>
       </div>
     );
