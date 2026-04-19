@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
+<input
+  value={query}
+  onChange={(e) => handleSearch(e.target.value)}
+  placeholder="Search creators..."
+  className="px-4 py-2 border rounded-xl text-sm"
+/>
   getDiscoveryProfiles,
   searchProfiles,
 } from "@/lib/network";
