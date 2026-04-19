@@ -60,5 +60,6 @@ export default function DiscoverPage() {
         loading={loading}
       />
     )}
-  </div>
+   </div>
 );
+}
