@@ -1,15 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-<input
-  value={query}
-  onChange={(e) => handleSearch(e.target.value)}
-  placeholder="Search creators..."
-  className="px-4 py-2 border rounded-xl text-sm"
-/>
-  getDiscoveryProfiles,
-  searchProfiles,
-} from "@/lib/network";
+import { getDiscoveryProfiles, searchProfiles } from "@/lib/network";
 import { NetworkProfile } from "@/types/network";
 import NetworkProfileList from "@/components/network/NetworkProfileList";
 import NetworkState from "@/components/network/NetworkState";
@@ -47,19 +39,24 @@ export default function DiscoverPage() {
   };
 
   return (
-  <div className="p-6 flex flex-col gap-4">
-    <input ... />
-
-    {loading ? (
-      <NetworkState type="loading" />
-    ) : profiles.length === 0 ? (
-      <NetworkState type="empty" />
-    ) : (
-      <NetworkProfileList
-        profiles={profiles}
-        currentUserId={currentUserId}
+    <div className="p-6 flex flex-col gap-4">
+      <input
+        value={query}
+        onChange={(e) => handleSearch(e.target.value)}
+        placeholder="Search creators..."
+        className="px-4 py-2 border rounded-xl text-sm"
       />
-    )}
-  </div>
-);
-    
+
+      {loading ? (
+        <NetworkState type="loading" />
+      ) : profiles.length === 0 ? (
+        <NetworkState type="empty" />
+      ) : (
+        <NetworkProfileList
+          profiles={profiles}
+          currentUserId={currentUserId}
+        />
+      )}
+    </div>
+  );
+}
