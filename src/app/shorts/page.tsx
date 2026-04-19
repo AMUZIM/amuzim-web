@@ -1,5 +1,11 @@
 "use client";
 
+import ShortFeed from "@/components/shorts/ShortFeed";
+
 export default function ShortsPage() {
-  return <div>Shorts</div>;
+  return (
+    <div className="h-screen w-full bg-black">
+      <ShortFeed />
+    </div>
+  );
 }
