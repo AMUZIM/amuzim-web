@@ -15,7 +15,7 @@ export default function NetworkProfileList({
   loading,
 }: Props) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 transition-opacity duration-200">
       {loading
         ? Array.from({ length: 6 }).map((_, i) => (
             <div
@@ -37,12 +37,13 @@ export default function NetworkProfileList({
             </div>
           ))
         : profiles.map((profile) => (
+           <div key={profile.id} className="opacity-0 animate-[fadeIn_0.2s_ease-out_forwards]">
             <NetworkProfileCard
-              key={profile.id}
               profile={profile}
               currentUserId={currentUserId}
-            />
-          ))}
+           />
+         </div>
+       ))}
     </div>
   );
 }
