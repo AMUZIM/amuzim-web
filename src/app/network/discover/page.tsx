@@ -50,13 +50,14 @@ export default function DiscoverPage() {
       {loading ? (
         <NetworkState type="loading" />
       ) : profiles.length === 0 ? (
-        <NetworkState type="empty" />
+        query ? (
+          <NetworkState type="search-empty" />
+       ) : (
+          <NetworkState type="empty" />
+       )
       ) : (
         <NetworkProfileList
-          profiles={profiles}
-          currentUserId={currentUserId}
+         profiles={profiles}
+         currentUserId={currentUserId}
         />
       )}
-    </div>
-  );
-}
