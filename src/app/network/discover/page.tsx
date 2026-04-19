@@ -39,24 +39,26 @@ export default function DiscoverPage() {
   };
 
   return (
-    <div className="p-6 flex flex-col gap-4">
-      <input
-        value={query}
-        onChange={(e) => handleSearch(e.target.value)}
-        placeholder="Search creators..."
-        className="px-4 py-2 border rounded-xl text-sm"
-      />
+  <div className="p-6 flex flex-col gap-4">
+    <input
+      value={query}
+      onChange={(e) => handleSearch(e.target.value)}
+      placeholder="Search creators..."
+      className="px-4 py-2 border rounded-xl text-sm"
+    />
 
-      {profiles.length === 0 && !loading ? (
-  query ? (
-    <NetworkState type="search-empty" />
-  ) : (
-    <NetworkState type="empty" />
-  )
-) : (
-  <NetworkProfileList
-    profiles={profiles}
-    currentUserId={currentUserId}
-    loading={loading}
-  />
-)}
+    {profiles.length === 0 && !loading ? (
+      query ? (
+        <NetworkState type="search-empty" />
+      ) : (
+        <NetworkState type="empty" />
+      )
+    ) : (
+      <NetworkProfileList
+        profiles={profiles}
+        currentUserId={currentUserId}
+        loading={loading}
+      />
+    )}
+  </div>
+);
