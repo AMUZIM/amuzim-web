@@ -33,15 +33,14 @@ export default function NetworkProfileList({
 }: Props) {
   const list = profiles.length ? profiles : mockProfiles;
 
-  return (
-    <div className="flex flex-col gap-3">
-      {list.map((profile) => (
-        <NetworkProfileCard
-          key={profile.id}
-          profile={profile}
-          currentUserId={currentUserId}
-        />
-      ))}
-    </div>
-  );
-}
+ return (
+  <div className="flex flex-col gap-3">
+    {profiles.map((profile) => (
+      <NetworkProfileCard
+        key={profile.id}
+        profile={profile}
+        currentUserId={currentUserId}
+      />
+    ))}
+  </div>
+);
