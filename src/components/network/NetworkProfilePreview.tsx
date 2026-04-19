@@ -12,7 +12,7 @@ export default function NetworkProfilePreview({ profile }: Props) {
       <div className="flex flex-col items-center text-center gap-2.5 w-full px-1 py-1 select-none transition-all duration-200">
         <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-600 shadow-sm ring-1 ring-gray-200 transition-all duration-200 hover:scale-105 hover:shadow-md">
         </div>
-        <div className="text-sm font-semibold text-gray-900 leading-tight tracking-tight truncate">
+        <div className="text-sm font-semibold text-gray-900 leading-tight tracking-tight truncate select-text">
           {profile.username}
         </div>
 
