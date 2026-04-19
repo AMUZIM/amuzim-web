@@ -1,7 +1,7 @@
 "use client";
 
 type Props = {
-  type: "loading" | "empty" | "error";
+  type: "loading" | "empty" | "error" | "search-empty";
   message?: string;
 };
 
