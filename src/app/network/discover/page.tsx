@@ -44,7 +44,7 @@ export default function DiscoverPage() {
       value={query}
       onChange={(e) => handleSearch(e.target.value)}
       placeholder="Search creators..."
-      className="px-4 py-2 border rounded-xl text-sm"
+      className="px-4 py-2 border rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20"
     />
 
     {profiles.length === 0 && !loading ? (
