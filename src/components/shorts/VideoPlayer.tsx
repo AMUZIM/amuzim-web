@@ -5,9 +5,10 @@ import { useEffect, useRef } from "react";
 type Props = {
   src: string;
   isActive: boolean;
+  preload?: boolean;
 };
 
-export default function VideoPlayer({ src, isActive }: Props) {
+export default function VideoPlayer({ src, isActive, preload }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function VideoPlayer({ src, isActive }: Props) {
       loop
       muted
       playsInline
-      preload="auto"
+      preload={preload ? "auto" : "metadata"}
     />
   );
 }
