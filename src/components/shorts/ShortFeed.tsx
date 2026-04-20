@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import ShortCard from "./ShortCard";
 
 const mock = [
-  "/videos/1.mp4",
-  "/videos/2.mp4",
-  "/videos/3.mp4",
+  "https://www.w3schools.com/html/mov_bbb.mp4",
+  "https://www.w3schools.com/html/movie.mp4",
+  "https://www.w3schools.com/html/mov_bbb.mp4",
 ];
 
 export default function ShortFeed() {
