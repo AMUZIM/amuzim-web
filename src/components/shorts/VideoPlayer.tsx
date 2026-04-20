@@ -20,6 +20,7 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
     if (!video) return;
 
     if (isActive) {
+      video.currentTime = 0;
       video.play().catch(() => {});
     } else {
       video.pause();
