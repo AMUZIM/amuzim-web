@@ -2,14 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import ShortCard from "./ShortCard";
-
-const mock = [
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-  "https://www.w3schools.com/html/movie.mp4",
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-];
+import { useShorts } from "@/hooks/useShorts";
 
 export default function ShortFeed() {
+  const { data } = useShorts();
+
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -58,19 +55,19 @@ export default function ShortFeed() {
       ref={containerRef}
       className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth"
     >
-      {mock.map((src, index) => (
-    <div
-      key={index}
-      data-index={index}
-      className="h-screen snap-start"
-    >
-      <ShortCard
-        src={src}
-        isActive={activeIndex === index}
-        preload={index === activeIndex + 1}
-      />
-   </div>
- ))}
+      {data.map((item, index) => (
+        <div
+          key={item.id}
+          data-index={index}
+          className="h-screen snap-start"
+        >
+          <ShortCard
+            src={item.mediaUrl}
+            isActive={activeIndex === index}
+            preload={index === activeIndex + 1}
+          />
+        </div>
+      ))}
     </div>
   );
 }
