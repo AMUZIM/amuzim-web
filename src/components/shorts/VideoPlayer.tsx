@@ -11,6 +11,7 @@ type Props = {
 export default function VideoPlayer({ src, isActive, preload }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [showIcon, setShowIcon] = useState<"play" | "pause" | null>(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -39,16 +40,23 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
   };
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full bg-black">
+      {!loaded && (
+        <div className="absolute inset-0 bg-black animate-pulse" />
+      )}
+
       <video
         ref={videoRef}
         src={src}
-        className="w-full h-full object-cover"
+        className={`w-full h-full object-cover transition-opacity duration-300 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
         loop
         muted
         playsInline
         preload={preload ? "auto" : "metadata"}
         onClick={handleClick}
+        onLoadedData={() => setLoaded(true)}
       />
 
       {showIcon && (
