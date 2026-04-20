@@ -12,6 +12,7 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [showIcon, setShowIcon] = useState<"play" | "pause" | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -39,6 +40,14 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
     setTimeout(() => setShowIcon(null), 500);
   };
 
+  if (error) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-black text-white text-sm">
+        Video not available
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full h-full bg-black">
       {!loaded && (
@@ -57,6 +66,7 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
         preload={preload ? "auto" : "metadata"}
         onClick={handleClick}
         onLoadedData={() => setLoaded(true)}
+        onError={() => setError(true)}
       />
 
       {showIcon && (
