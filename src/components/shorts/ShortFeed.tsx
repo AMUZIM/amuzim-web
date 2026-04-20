@@ -59,14 +59,18 @@ export default function ShortFeed() {
       className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth"
     >
       {mock.map((src, index) => (
-        <div
-          key={index}
-          data-index={index}
-          className="h-screen snap-start"
-        >
-          <ShortCard src={src} isActive={activeIndex === index} />
-        </div>
-      ))}
+    <div
+      key={index}
+      data-index={index}
+      className="h-screen snap-start"
+    >
+      <ShortCard
+        src={src}
+        isActive={activeIndex === index}
+        preload={index === activeIndex + 1}
+      />
+   </div>
+ ))}
     </div>
   );
 }
