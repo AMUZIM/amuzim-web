@@ -1,11 +1,9 @@
 "use client";
 
-import ShortFeed from "@/components/shorts/ShortFeed";
-
 export default function Home() {
   return (
-    <div className="h-screen w-full bg-black">
-      <ShortFeed />
+    <div className="p-6">
+      <h1 className="text-xl font-semibold">AMUZIM</h1>
     </div>
   );
 }
