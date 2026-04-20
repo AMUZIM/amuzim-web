@@ -21,31 +21,42 @@ export default function ShortFeed() {
       container.querySelectorAll("[data-index]")
     ) as HTMLElement[];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setActiveIndex(index);
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        let closestIndex = 0;
+        let closestOffset = Infinity;
+
+        elements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const offset = Math.abs(rect.top);
+
+          if (offset < closestOffset) {
+            closestOffset = offset;
+            closestIndex = Number(el.dataset.index);
           }
         });
-      },
-      {
-        threshold: 0.6,
-      }
-    );
 
-    elements.forEach((el) => observer.observe(el));
+        setActiveIndex(closestIndex);
+        ticking = false;
+      });
+    };
+
+    container.addEventListener("scroll", handleScroll);
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el));
+      container.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className="h-full overflow-y-scroll snap-y snap-mandatory"
+      className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth"
     >
       {mock.map((src, index) => (
         <div
