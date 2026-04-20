@@ -13,6 +13,7 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
   const [showIcon, setShowIcon] = useState<"play" | "pause" | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -67,7 +68,20 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
         onClick={handleClick}
         onLoadedData={() => setLoaded(true)}
         onError={() => setError(true)}
+        onTimeUpdate={() => {
+          const video = videoRef.current;
+          if (!video) return;
+          setProgress((video.currentTime / video.duration) * 100);
+        }}
       />
+
+      {/* Progress bar */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+        <div
+          className="h-full bg-white transition-all"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
 
       {showIcon && (
         <div className="absolute inset-0 flex items-center justify-center text-white text-5xl pointer-events-none">
