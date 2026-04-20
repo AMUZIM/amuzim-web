@@ -31,6 +31,16 @@ export default function VideoPlayer({ src, isActive, preload }: Props) {
       muted
       playsInline
       preload={preload ? "auto" : "metadata"}
+      onClick={() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }}
     />
   );
 }
