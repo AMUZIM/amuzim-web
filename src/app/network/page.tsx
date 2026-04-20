@@ -1,5 +1,6 @@
 "use client";
 
+import ShortFeed from "@/components/shorts/ShortFeed";
 import { useState } from "react";
 import NetworkTabs from "@/components/network/NetworkTabs";
 import NetworkFeed from "@/components/network/NetworkFeed";
@@ -15,6 +16,7 @@ export default function NetworkPage() {
       <NetworkTabs
         tabs={[
           { key: "feed", label: "Feed" },
+          { key: "shorts", label: "Shorts" },
           { key: "notifications", label: "Notifications" },
         ]}
         active={active}
@@ -22,7 +24,9 @@ export default function NetworkPage() {
       />
 
       {active === "feed" && <NetworkFeed userId={userId} />}
-
+      
+      {active === "shorts" && <ShortFeed />}
+      
       {active === "notifications" && (
         <NetworkNotifications userId={userId} />
       )}
