@@ -11,7 +11,11 @@ type Props = {
 
 export default function ShortCard({ src, isActive, preload }: Props) {
   return (
-    <div className="h-screen w-full relative bg-black">
+    <div
+      className={`h-screen w-full relative bg-black transition-opacity duration-300 ${
+        isActive ? "opacity-100" : "opacity-60"
+      }`}
+    >
       <VideoPlayer src={src} isActive={isActive} preload={preload} />
       <InteractionBar />
     </div>
