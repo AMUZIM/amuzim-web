@@ -46,6 +46,12 @@ export default function DiscoverPage() {
       placeholder="Search creators..."
       className="px-4 py-2 border rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20"
     />
+    <a
+      href="/shorts"
+      className="text-sm px-3 py-2 border rounded-lg w-fit"
+    >
+      View Shorts
+    </a>
 
     {profiles.length === 0 && !loading ? (
       query ? (
