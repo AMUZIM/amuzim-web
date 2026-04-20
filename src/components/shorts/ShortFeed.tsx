@@ -5,7 +5,7 @@ import ShortCard from "./ShortCard";
 import { useShorts } from "@/hooks/useShorts";
 
 export default function ShortFeed() {
-  const { data } = useShorts();
+  const { data, loading } = useShorts();
 
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -49,6 +49,14 @@ export default function ShortFeed() {
       container.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center text-white">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div
