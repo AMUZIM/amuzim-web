@@ -7,7 +7,7 @@ import NetworkFeed from "@/components/network/NetworkFeed";
 import NetworkNotifications from "@/components/network/NetworkNotifications";
 
 export default function NetworkPage() {
-  const [active, setActive] = useState("feed");
+  const [active, setActive] = useState("shorts");
 
   const userId = "user_1";
 
