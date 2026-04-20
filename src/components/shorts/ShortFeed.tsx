@@ -61,7 +61,7 @@ export default function ShortFeed() {
   return (
     <div
       ref={containerRef}
-      className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth"
+      className="h-screen overflow-y-scroll snap-y snap-mandatory"
     >
       {data.map((item, index) => (
         <div
