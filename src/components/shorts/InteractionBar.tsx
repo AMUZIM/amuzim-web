@@ -6,13 +6,14 @@ export default function InteractionBar() {
   const [liked, setLiked] = useState(false);
 
   return (
-    <div className="absolute right-4 bottom-20 flex flex-col items-center gap-4 text-white">
+    <div className="absolute right-4 bottom-10 flex flex-col items-center gap-4 text-white">
       <button
         onClick={() => setLiked(!liked)}
-        className="text-sm bg-black/40 px-3 py-2 rounded-full"
+        className="text-2xl transition-transform active:scale-125"
       >
-        {liked ? "❤️ Liked" : "🤍 Like"}
+        {liked ? "❤️" : "🤍"}
       </button>
+      <span className="text-xs">Like</span>
     </div>
   );
 }
