@@ -45,12 +45,20 @@ export default function CreatePage() {
       </label>
 
       {previewUrl && (
-        <video
+        <div className="flex flex-col gap-4">
+         <video
           src={previewUrl}
           controls
           className="w-full rounded-xl"
         />
-      )}
+
+       <button
+        className="w-fit px-4 py-2 rounded-lg bg-black text-white text-sm"
+       >
+        Publish
+       </button>
+      </div>
+     )}
     </div>
   );
 }
