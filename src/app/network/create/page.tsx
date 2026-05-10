@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function CreatePage() {
+  const [fileName, setFileName] = useState("");
+
   return (
     <div className="p-6 flex flex-col gap-6">
       <h1 className="text-2xl font-semibold">
@@ -10,6 +16,13 @@ export default function CreatePage() {
           type="file"
           accept="video/*,audio/*"
           className="hidden"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+
+            if (file) {
+              setFileName(file.name);
+            }
+          }}
         />
 
         <div className="flex flex-col gap-2">
@@ -20,6 +33,12 @@ export default function CreatePage() {
           <span className="text-xs text-gray-500">
             MP4, MOV, MP3, WAV
           </span>
+
+          {fileName && (
+            <span className="text-xs text-black">
+              {fileName}
+            </span>
+          )}
         </div>
       </label>
     </div>
