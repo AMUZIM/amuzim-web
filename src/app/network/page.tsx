@@ -14,14 +14,21 @@ export default function NetworkPage() {
   return (
     <div className="p-6 flex flex-col gap-4">
       <NetworkTabs
-        tabs={[
-          { key: "feed", label: "Feed" },
-          { key: "shorts", label: "Shorts" },
-          { key: "notifications", label: "Notifications" },
-        ]}
-        active={active}
-        onChange={setActive}
-      />
+   tabs={[
+     { key: "feed", label: "Feed" },
+     { key: "shorts", label: "Shorts" },
+     { key: "notifications", label: "Notifications" },
+   ]}
+   active={active}
+   onChange={setActive}
+ />
+
+<a
+  href="/network/create"
+  className="w-fit px-4 py-2 border rounded-lg text-sm"
+>
+  Upload
+</a>
 
       {active === "feed" && <NetworkFeed userId={userId} />}
       
