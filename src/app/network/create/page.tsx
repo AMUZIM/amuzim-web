@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function CreatePage() {
   const [fileName, setFileName] = useState("");
+  const [previewUrl, setPreviewUrl] = useState("");
 
   return (
     <div className="p-6 flex flex-col gap-6">
@@ -21,6 +22,7 @@ export default function CreatePage() {
 
             if (file) {
               setFileName(file.name);
+              setPreviewUrl(URL.createObjectURL(file));
             }
           }}
         />
@@ -41,6 +43,14 @@ export default function CreatePage() {
           )}
         </div>
       </label>
+
+      {previewUrl && (
+        <video
+          src={previewUrl}
+          controls
+          className="w-full rounded-xl"
+        />
+      )}
     </div>
   );
 }
