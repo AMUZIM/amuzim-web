@@ -81,7 +81,11 @@ export default function CreatePage() {
           )}
         </div>
       </label>
-
+         {error && (
+           <span className="text-sm text-red-500">
+             {error}
+           </span>
+         )}    
       {previewUrl && (
         <div className="flex flex-col gap-4">
           <video
