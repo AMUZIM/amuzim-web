@@ -39,9 +39,29 @@ export default function CreatePage() {
             const file = e.target.files?.[0];
 
             if (file) {
-              setFileName(file.name);
-              setPreviewUrl(URL.createObjectURL(file));
-            }
+              const allowedTypes = [
+               "video/mp4",
+               "video/quicktime",
+               "audio/mpeg",
+               "audio/wav",
+              ];
+
+  const maxSize = 50 * 1024 * 1024;
+
+  if (!allowedTypes.includes(file.type)) {
+    setError("Unsupported file format");
+    return;
+  }
+
+  if (file.size > maxSize) {
+    setError("File exceeds 50MB");
+    return;
+  }
+
+  setError("");
+  setFileName(file.name);
+  setPreviewUrl(URL.createObjectURL(file));
+}
           }}
         />
 
