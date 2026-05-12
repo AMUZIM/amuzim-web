@@ -1,3 +1,5 @@
+import HeroExplore from "../../components/HeroExplore"
+import ExploreCTA from "../../components/ExploreCTA"
 import QuickEntrySection from "../../components/QuickEntrySection"
 import FeaturedSection from "../../components/FeaturedSection"
 import EarlyAccessSection from "../../components/EarlyAccessSection"
