@@ -11,9 +11,12 @@ export default function Explore() {
       <HeroExplore />
 
       <div className="space-y-32">
-        <CuratedMusic />
-        <MusicLovers />
-        <Learning />
+        <QuickEntrySection />
+        <FeaturedSection />
+        <EarlyAccessSection />
+        <DiscoverSection />
+        <FutureSection />
+        <EditorialEntrySection />
       </div>
 
       <ExploreCTA />
