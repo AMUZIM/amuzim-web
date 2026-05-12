@@ -1,3 +1,3 @@
-export default function QuickEntrySection() {
-  return <section>Quick Entry</section>
+export default function EditorialEntrySection() {
+  return <section>Editorial Entry</section>
 }
