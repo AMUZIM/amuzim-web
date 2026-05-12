@@ -4,7 +4,6 @@ import QuickEntrySection from "../../components/QuickEntrySection"
 import FeaturedSection from "../../components/FeaturedSection"
 import EarlyAccessSection from "../../components/EarlyAccessSection"
 import DiscoverSection from "../../components/DiscoverSection"
-import FutureSection from "../../components/FutureSection"
 import EditorialEntrySection from "../../components/EditorialEntrySection"
 
 export default function Explore() {
@@ -15,10 +14,8 @@ export default function Explore() {
 
       <div className="space-y-32">
         <QuickEntrySection />
-        <FeaturedSection />
         <EarlyAccessSection />
         <DiscoverSection />
-        <FutureSection />
         <EditorialEntrySection />
       </div>
 
