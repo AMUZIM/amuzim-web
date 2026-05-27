@@ -1,9 +1,9 @@
-import DashboardHeader from "@/ui/components/dashboard-header";
+import DashboardShell from "@/ui/components/dashboard-shell";
 
 export default function SettingsPage() {
   return (
     <main>
-      <DashboardHeader section="settings" />
+      <DashboardShell section="settings" />
     </main>
   );
 }
