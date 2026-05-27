@@ -2,9 +2,9 @@
 
 ## Core Principle
 
-Layouts provide reusable structural composition across the ecosystem.
+Layouts coordinate reusable structural composition across the ecosystem.
 
-Layouts remain reusable and business-agnostic.
+Layouts must remain reusable, scalable, and business-agnostic.
 
 ---
 
@@ -13,9 +13,9 @@ Layouts remain reusable and business-agnostic.
 Examples:
 
 - page shells
-- responsive structures
-- navigation wrappers
-- dashboard layouts
+- dashboard structures
+- responsive wrappers
+- navigation composition
 - content containers
 
 ---
@@ -24,17 +24,19 @@ Examples:
 
 Avoid:
 
-- feature business logic
-- backend orchestration
-- provider authority
-- hidden feature ownership
+- backend authority
+- feature ownership
+- provider logic
+- infrastructure orchestration
 
 ---
 
 # Important Principle
 
-Layouts coordinate structure only.
+Layouts orchestrate structure only.
 
-Feature logic belongs inside:
+Business logic belongs inside:
 
-- src/features
+- features
+- backend systems
+- domains
