@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function SettingsPage() {
   return (
     <main>
-      <h1>Settings Foundation</h1>
+      <DashboardHeader section="settings" />
     </main>
   );
 }
