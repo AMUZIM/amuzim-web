@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 
 import { ROUTES } from "@/shared/constants/routes";
 
+import { isAuthenticated } from "@/shared/utils/is-authenticated";
 import { isProtectedRoute } from "@/shared/utils/is-protected-route";
 
 export function middleware(request: NextRequest) {
@@ -11,9 +12,9 @@ export function middleware(request: NextRequest) {
   const protectedRoute = isProtectedRoute(pathname);
 
   if (protectedRoute) {
-    const isAuthenticated = false;
+    const authenticated = isAuthenticated();
 
-    if (!isAuthenticated) {
+    if (!authenticated) {
       return NextResponse.redirect(
         new URL(ROUTES.AUTH, request.url)
       );
