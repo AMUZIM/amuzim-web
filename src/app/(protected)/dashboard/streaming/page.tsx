@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function StreamingDashboardPage() {
   return (
     <main>
-      <h1>Streaming Dashboard Foundation</h1>
+      <DashboardHeader section="streaming" />
     </main>
   );
 }
