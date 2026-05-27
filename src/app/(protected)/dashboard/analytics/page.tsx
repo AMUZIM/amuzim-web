@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function AnalyticsPage() {
   return (
     <main>
-      <h1>Analytics Foundation</h1>
+      <DashboardHeader section="analytics" />
     </main>
   );
 }
