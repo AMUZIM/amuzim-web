@@ -1,9 +1,9 @@
-import DashboardHeader from "@/ui/components/dashboard-header";
+import DashboardShell from "@/ui/components/dashboard-shell";
 
 export default function CreatorDashboardPage() {
   return (
     <main>
-      <DashboardHeader section="creator" />
+      <DashboardShell section="creator" />
     </main>
   );
 }
