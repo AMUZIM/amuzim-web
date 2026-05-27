@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function EditorialDashboardPage() {
   return (
     <main>
-      <h1>Editorial Dashboard Foundation</h1>
+      <DashboardHeader section="editorial" />
     </main>
   );
 }
