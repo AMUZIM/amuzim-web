@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function CreatorDashboardPage() {
   return (
     <main>
-      <h1>Creator Dashboard Foundation</h1>
+      <DashboardHeader section="creator" />
     </main>
   );
 }
