@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function ExploreDashboardPage() {
   return (
     <main>
-      <h1>Explore Dashboard Foundation</h1>
+      <DashboardHeader section="explore" />
     </main>
   );
 }
