@@ -1,6 +1,10 @@
+import type { Permission } from "./permission";
 import type { UserRole } from "./user-role";
 
-export const AUTH_PERMISSIONS: Record<UserRole, string[]> = {
+export const AUTH_PERMISSIONS: Record<
+  UserRole,
+  Permission[]
+> = {
   guest: [],
 
   user: ["dashboard:view"],
