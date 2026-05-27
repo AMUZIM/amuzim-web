@@ -1,15 +1,9 @@
-import DashboardNavigation from "@/ui/navigation/dashboard-navigation";
+import DashboardLayout from "@/ui/layouts/dashboard-layout";
 
-export default function DashboardLayout({
+export default function ProtectedDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <main>
-      <DashboardNavigation />
-
-      {children}
-    </main>
-  );
+  return <DashboardLayout>{children}</DashboardLayout>;
 }
