@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function NetworkDashboardPage() {
   return (
     <main>
-      <h1>Network Dashboard Foundation</h1>
+      <DashboardHeader section="network" />
     </main>
   );
 }
