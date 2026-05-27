@@ -1,20 +1,22 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+import { ROUTES } from "@/shared/constants/routes";
+
+import { isProtectedRoute } from "@/shared/utils/is-protected-route";
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  const protectedRoutes = ["/dashboard"];
+  const protectedRoute = isProtectedRoute(pathname);
 
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    pathname.startsWith(route)
-  );
-
-  if (isProtectedRoute) {
+  if (protectedRoute) {
     const isAuthenticated = false;
 
     if (!isAuthenticated) {
-      return NextResponse.redirect(new URL("/auth", request.url));
+      return NextResponse.redirect(
+        new URL(ROUTES.AUTH, request.url)
+      );
     }
   }
 
