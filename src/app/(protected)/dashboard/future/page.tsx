@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function FutureDashboardPage() {
   return (
     <main>
-      <h1>Future Dashboard Foundation</h1>
+      <DashboardHeader section="future" />
     </main>
   );
 }
