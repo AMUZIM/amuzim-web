@@ -1,4 +1,4 @@
-import Link from "next/link";
+import DashboardNavigation from "@/ui/navigation/dashboard-navigation";
 
 export default function DashboardLayout({
   children,
@@ -7,45 +7,7 @@ export default function DashboardLayout({
 }) {
   return (
     <main>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/dashboard/profile">Profile</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/settings">Settings</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/creator">Creator</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/network">Network</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/editorial">Editorial</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/explore">Explore</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/streaming">Streaming</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/future">Future</Link>
-          </li>
-
-          <li>
-            <Link href="/dashboard/analytics">Analytics</Link>
-          </li>
-        </ul>
-      </nav>
+      <DashboardNavigation />
 
       {children}
     </main>
