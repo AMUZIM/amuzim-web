@@ -1,7 +1,9 @@
+import DashboardHeader from "@/ui/components/dashboard-header";
+
 export default function ProfilePage() {
   return (
     <main>
-      <h1>Profile Foundation</h1>
+      <DashboardHeader section="profile" />
     </main>
   );
 }
