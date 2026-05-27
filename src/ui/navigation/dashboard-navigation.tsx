@@ -1,43 +1,45 @@
 import Link from "next/link";
 
+import { ROUTES } from "@/shared/constants/routes";
+
 export default function DashboardNavigation() {
   return (
     <nav>
       <ul>
         <li>
-          <Link href="/dashboard/profile">Profile</Link>
+          <Link href={ROUTES.PROFILE}>Profile</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/settings">Settings</Link>
+          <Link href={ROUTES.SETTINGS}>Settings</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/creator">Creator</Link>
+          <Link href={ROUTES.CREATOR}>Creator</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/network">Network</Link>
+          <Link href={ROUTES.NETWORK}>Network</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/editorial">Editorial</Link>
+          <Link href={ROUTES.EDITORIAL}>Editorial</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/explore">Explore</Link>
+          <Link href={ROUTES.EXPLORE}>Explore</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/streaming">Streaming</Link>
+          <Link href={ROUTES.STREAMING}>Streaming</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/future">Future</Link>
+          <Link href={ROUTES.FUTURE}>Future</Link>
         </li>
 
         <li>
-          <Link href="/dashboard/analytics">Analytics</Link>
+          <Link href={ROUTES.ANALYTICS}>Analytics</Link>
         </li>
       </ul>
     </nav>
