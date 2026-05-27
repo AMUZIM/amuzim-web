@@ -4,4 +4,4 @@ export default function ProfilePage() {
       <h1>Profile Foundation</h1>
     </main>
   );
-}
+} 
