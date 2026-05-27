@@ -6,4 +6,4 @@ export default function ProfilePage() {
       <DashboardShell section="profile" />
     </main>
   );
-}
+} 
