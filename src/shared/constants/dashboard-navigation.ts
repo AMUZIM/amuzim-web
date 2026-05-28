@@ -6,46 +6,46 @@ export const DASHBOARD_NAVIGATION: NavigationItem[] =
   [
     {
       label: "Profile",
-      href: ROUTES.PROFILE,
+      href: ROUTES.PROFILE as any,
     },
 
     {
       label: "Settings",
-      href: ROUTES.SETTINGS,
+      href: ROUTES.SETTINGS as any,
     },
 
     {
       label: "Creator",
-      href: ROUTES.CREATOR,
+      href: ROUTES.CREATOR as any,
     },
 
     {
       label: "Network",
-      href: ROUTES.NETWORK,
+      href: ROUTES.NETWORK as any,
     },
 
     {
       label: "Editorial",
-      href: ROUTES.EDITORIAL,
+      href: ROUTES.EDITORIAL as any,
     },
 
     {
       label: "Explore",
-      href: ROUTES.EXPLORE,
+      href: ROUTES.EXPLORE as any,
     },
 
     {
       label: "Streaming",
-      href: ROUTES.STREAMING,
+      href: ROUTES.STREAMING as any,
     },
 
     {
       label: "Future",
-      href: ROUTES.FUTURE,
+      href: ROUTES.FUTURE as any,
     },
 
     {
       label: "Analytics",
-      href: ROUTES.ANALYTICS,
+      href: ROUTES.ANALYTICS as any,
     },
   ];
