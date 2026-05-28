@@ -1,6 +1,6 @@
 import { ROUTES } from "@/shared/constants/routes";
 
-import { hasRouteAccess } from "./has-route-access";
+import { hasRouteAccess } from "@/shared/types/has-route-access";
 import { isAuthenticated } from "./is-authenticated";
 
 export function redirectIfUnauthorized(
