@@ -1,0 +1,19 @@
+# Governance
+
+/docs/ @AMUZIM/owners
+
+README.md @AMUZIM/owners
+ROADMAP.md @AMUZIM/owners
+HANDOFF.md @AMUZIM/owners
+
+# Sensitive
+
+/internal/ @AMUZIM/owners
+
+# Platform
+
+/domains/ @AMUZIM/platform
+/infrastructure/ @AMUZIM/platform
+/database/ @AMUZIM/platform
+/shared/ @AMUZIM/platform
+/apps/ @AMUZIM/platform
